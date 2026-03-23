@@ -5,6 +5,7 @@
   <p><strong>A cinematic macOS menu bar companion for the Criterion Channel 24/7 stream.</strong></p>
   <p>
     <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-111827?style=flat-square&logo=apple" />
+    <img alt="Public beta" src="https://img.shields.io/badge/Status-Public%20Beta-C2410C?style=flat-square" />
     <img alt="SwiftUI + AppKit" src="https://img.shields.io/badge/SwiftUI-%2B%20AppKit-D97706?style=flat-square&logo=swift" />
     <img alt="SolidJS landing site" src="https://img.shields.io/badge/Site-SolidJS%20%2B%20Vite-0F766E?style=flat-square&logo=solid" />
     <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-374151?style=flat-square" />
@@ -19,6 +20,8 @@
 </div>
 
 Criterion Now turns the Criterion Channel into something that feels closer to a living repertory cinema than a browser tab. It sits in the menu bar, tells you exactly what is playing on the 24/7 stream, opens the stream in a floating mini player, surfaces soundtrack matches from multiple music sources, mirrors your Criterion `My List`, and keeps a running viewing history while the app is open.
+
+> Public beta: the core experience is live, but the app is still moving. Expect rough edges, UI changes, and occasional metadata or integration misses while the project stabilizes.
 
 <p align="center">
   <img src="site/public/assets/readme-now-playing.svg" alt="Criterion Now now playing interface illustration" width="980" />

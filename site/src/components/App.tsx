@@ -8,6 +8,7 @@ import { AppMockup } from "./AppMockup";
 const TITLE = "CRITERION NOW";
 
 const FAQ_ITEMS = [
+  { q: "Is this app stable yet?", a: "Not fully. Criterion Now is still in public beta. The core workflow is usable, but the UI, metadata matching, soundtrack discovery, and install flow are still being refined in the open." },
   { q: "Do I need a Criterion Channel subscription?", a: "Yes. Criterion Now is a companion app — it connects to your existing Criterion Channel account to show what's streaming on the 24/7 channel, manage your My List, and track viewing history." },
   { q: "Is my data sent anywhere?", a: "No. Everything stays on your Mac. Film data, viewing history, library cache, and settings are stored locally in ~/Library/Application Support/CriterionNow/ as plain JSON files. No analytics, no cloud, no telemetry." },
   { q: "How does soundtrack matching work?", a: "When a film is detected, five music sources are queried in parallel — Wikidata, MusicBrainz, Discogs, iTunes, and Last.fm. Each result is scored across six dimensions (title match, artist match, release year, track count, source trust, keyword relevance) with configurable weights. Only results above the confidence threshold are shown." },
@@ -84,6 +85,10 @@ export function App() {
               </div>
               <div class="hero-headline">
                 <h1>{title()}</h1>
+              </div>
+              <div class="hero-beta">
+                <span class="beta-pill">PUBLIC BETA</span>
+                <p>Shipping fast in the open. Expect rough edges, UI changes, and the occasional broken match while the app settles.</p>
               </div>
               <p class="hero-desc">
                 A companion for the Criterion Channel that puts everything in one place — what's playing now,
@@ -294,7 +299,7 @@ export function App() {
             <div class="install-step reveal reveal-delay-1">
               <span class="install-step-num">ACT I</span>
               <h4>Download</h4>
-              <p>Grab the latest release from the downloads section. It's a single .app bundle — no installer needed.</p>
+              <p>Grab the latest public beta release from the downloads section. It's a single .app bundle — no installer needed.</p>
             </div>
             <div class="install-step reveal reveal-delay-2">
               <span class="install-step-num">ACT II</span>

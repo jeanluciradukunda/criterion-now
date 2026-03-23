@@ -38,12 +38,12 @@ export const downloadLinks: DownloadLink[] = [
   {
     label: "DOWNLOAD APP",
     href: "https://github.com/jeanluciradukunda/criterion-now/releases/latest",
-    meta: "macOS 14+ · Latest DMG"
+    meta: "macOS 14+ · Public Beta"
   },
   {
     label: "VIEW SOURCE",
     href: "https://github.com/jeanluciradukunda/criterion-now",
-    meta: "Swift · SwiftUI · AppKit"
+    meta: "Swift · SwiftUI · AppKit · Beta"
   }
 ];
 
@@ -159,6 +159,7 @@ export const galleryFrames: GalleryFrame[] = [
 ];
 
 export const footerFacts = [
+  "Public beta",
   "macOS 14+",
   "SwiftUI · AppKit · SceneKit",
   "5 music APIs",
