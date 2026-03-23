@@ -1,0 +1,10 @@
+title = "criterion-now gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Committed example secrets template with placeholder values"
+paths = [
+  '''(^|/)CriterionNow/Resources/Secrets\.example\.plist$''',
+]
