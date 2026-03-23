@@ -137,24 +137,24 @@ export const featurePanels: FeaturePanel[] = [
 export const galleryFrames: GalleryFrame[] = [
   {
     title: "Now Playing + Soundtrack",
-    caption: "The menu bar popover showing the current film, progress bar, and soundtrack tab with album artwork and track listing.",
+    caption: "An original interface study of the menu bar popover with live progress, action buttons, and soundtrack context.",
     kind: "image",
-    src: asset("assets/library-shot-01.png"),
-    alt: "Criterion Now menu bar popover showing film details and soundtrack"
+    src: asset("assets/readme-now-playing.svg"),
+    alt: "Criterion Now now playing and soundtrack interface illustration"
   },
   {
     title: "Library Flip Cards",
-    caption: "Browsing My List as flip cards with search bar and decade/country filter chips below the carousel.",
+    caption: "An original interface study of the inline library browser with flip cards, search, and filter chips.",
     kind: "image",
-    src: asset("assets/library-shot-02.png"),
-    alt: "Library flip card browser with poster and film details"
+    src: asset("assets/readme-library.svg"),
+    alt: "Criterion Now library flip cards interface illustration"
   },
   {
     title: "Settings + Scoring Radar",
-    caption: "Developer settings showing the soundtrack scoring radar chart, API key management, and app metrics.",
+    caption: "An original interface study of the developer settings view with scoring radar, API keys, and source trust.",
     kind: "image",
-    src: asset("assets/library-shot-03.png"),
-    alt: "Settings panel with radar chart and metrics"
+    src: asset("assets/readme-settings.svg"),
+    alt: "Criterion Now settings and scoring interface illustration"
   }
 ];
 

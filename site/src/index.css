@@ -442,8 +442,12 @@ p { font-size: 1rem; line-height: 1.7; color: var(--mid); }
 .gallery-card img {
   width: 100%;
   aspect-ratio: 4/3;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  background:
+    radial-gradient(circle at top left, rgba(212, 168, 67, 0.12), transparent 40%),
+    linear-gradient(180deg, #f9f4ec 0%, #efe6d8 100%);
+  padding: 0.75rem;
 }
 
 .gallery-caption {
@@ -611,7 +615,7 @@ p { font-size: 1rem; line-height: 1.7; color: var(--mid); }
 }
 
 /* Make hero/features relative for artifact positioning */
-.hero-shell, .feature-shell, .editorial-shell {
+.hero-shell, .feature-shell, .editorial-shell, .origin-shell, .install-shell, .gallery-shell, .faq-shell, .site-footer {
   position: relative;
   overflow: visible;
 }

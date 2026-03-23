@@ -270,6 +270,17 @@ export function App() {
           </blockquote>
           <p class="origin-caption">— The entire reason this exists</p>
         </div>
+        <div class="artifact-field">
+          <DraggableArtifact class="artifact-torn wobble-hint" rotation={-4} parallax={0.05} style="top: 2rem; left: 4rem;">
+            <TornTicket />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-megaphone wobble-hint" rotation={6} parallax={0.04} style="top: 2rem; right: 5rem;">
+            <Megaphone />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-rating wobble-hint" rotation={-8} parallax={0.06} style="bottom: 1rem; right: 18rem;">
+            <FilmRating />
+          </DraggableArtifact>
+        </div>
       </section>
 
       {/* ═══════ INSTALL GUIDE ═══════ */}
@@ -303,14 +314,28 @@ export function App() {
             </div>
           </div>
         </div>
+        <div class="artifact-field">
+          <DraggableArtifact class="artifact-ticket wobble-hint" rotation={-5} parallax={0.04} style="top: 2rem; left: -1rem;">
+            <TicketStub />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-pass wobble-hint" rotation={4} parallax={0.06} style="top: 1rem; right: 4rem;">
+            <SeasonPass />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-chair wobble-hint" rotation={-2} parallax={0.05} style="bottom: 1rem; left: 7rem;">
+            <DirectorsChair />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-award wobble-hint" rotation={8} parallax={0.07} style="bottom: 1rem; right: 14rem;">
+            <FilmAward />
+          </DraggableArtifact>
+        </div>
       </section>
 
       {/* ═══════ GALLERY ═══════ */}
       <section class="gallery-shell" id="gallery">
         <div class="maxwidth gallery-grid">
           <div class="section-head reveal">
-            <p class="kicker">Screenshots</p>
-            <h2>From the local build.</h2>
+            <p class="kicker">Interface Studies</p>
+            <h2>Original artwork of the real app.</h2>
           </div>
           <For each={galleryFrames}>
             {(frame, i) => (
@@ -323,6 +348,20 @@ export function App() {
               </article>
             )}
           </For>
+        </div>
+        <div class="artifact-field">
+          <DraggableArtifact class="artifact-vinyl wobble-hint" rotation={-7} parallax={0.05} style="top: 4rem; left: 1rem;">
+            <VinylRecord />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-filmstrip wobble-hint" rotation={5} parallax={0.03} style="top: 12rem; right: 3rem;">
+            <Filmstrip3D />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-program wobble-hint" rotation={-3} parallax={0.06} style="bottom: 3rem; left: 4rem;">
+            <ScreeningProgram />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-reel wobble-hint" rotation={4} parallax={0.04} style="bottom: 2rem; right: 8rem;">
+            <ProjectorReel />
+          </DraggableArtifact>
         </div>
       </section>
 
@@ -338,6 +377,20 @@ export function App() {
               {(item) => <FAQItem question={item.q} answer={item.a} />}
             </For>
           </div>
+        </div>
+        <div class="artifact-field">
+          <DraggableArtifact class="artifact-cue wobble-hint" rotation={-3} parallax={0.05} style="top: 4rem; left: 0.5rem;">
+            <CueSheet />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-popcorn wobble-hint" rotation={7} parallax={0.07} style="top: 3rem; right: 4rem;">
+            <PopcornBox />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-slate wobble-hint" rotation={-5} parallax={0.04} style="bottom: 2rem; left: 6rem;">
+            <DirectorSlate />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-can wobble-hint" rotation={5} parallax={0.06} style="bottom: 1rem; right: 7rem;">
+            <FilmCanLabel />
+          </DraggableArtifact>
         </div>
       </section>
 
@@ -387,6 +440,17 @@ export function App() {
             {" "}<a href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikidata</a>,
             and the iTunes Search API. This project is built for personal use and educational purposes.
           </p>
+        </div>
+        <div class="artifact-field">
+          <DraggableArtifact class="artifact-strip wobble-hint" rotation={2} parallax={0.05} style="top: 3rem; right: 2rem;">
+            <TimelineStrip />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-ticket wobble-hint" rotation={-6} parallax={0.04} style="bottom: 6rem; left: 2rem;">
+            <TicketStub />
+          </DraggableArtifact>
+          <DraggableArtifact class="artifact-vinyl wobble-hint" rotation={9} parallax={0.06} style="bottom: 8rem; right: 18rem;">
+            <VinylRecord />
+          </DraggableArtifact>
         </div>
       </footer>
     </main>
