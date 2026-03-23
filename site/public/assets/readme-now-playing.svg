@@ -1,0 +1,127 @@
+<svg width="1600" height="980" viewBox="0 0 1600 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="180" y1="40" x2="1420" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F2E9"/>
+      <stop offset="1" stop-color="#E8DFD0"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="544" y1="140" x2="1212" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E2723"/>
+      <stop offset="1" stop-color="#171412"/>
+    </linearGradient>
+    <linearGradient id="poster" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#D8864F"/>
+      <stop offset="1" stop-color="#612719"/>
+    </linearGradient>
+    <linearGradient id="album" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F7D194"/>
+      <stop offset="1" stop-color="#B63B26"/>
+    </linearGradient>
+    <filter id="shadow" x="470" y="90" width="820" height="800" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="28"/>
+      <feGaussianBlur stdDeviation="26"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0941176 0 0 0 0 0.0705882 0 0 0 0 0.0588235 0 0 0 0.26 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+    <filter id="soft" x="1072" y="390" width="280" height="320" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="16"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0941176 0 0 0 0 0.0705882 0 0 0 0 0.0588235 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <rect x="58" y="58" width="1484" height="864" rx="32" fill="none" stroke="#D7CCBC"/>
+  <path d="M120 212H458" stroke="#D7CCBC" stroke-width="2" stroke-linecap="round"/>
+  <path d="M1142 774H1480" stroke="#D7CCBC" stroke-width="2" stroke-linecap="round"/>
+
+  <text x="120" y="138" fill="#A24A32" font-size="18" font-family="Georgia, serif" letter-spacing="5">CRITERION NOW</text>
+  <text x="120" y="182" fill="#1B1714" font-size="74" font-family="Georgia, serif" font-weight="700">Now playing, without the browser.</text>
+  <text x="120" y="238" fill="#6B5E52" font-size="23" font-family="'SFMono-Regular', Menlo, monospace">Menu bar film detection, soundtrack lookup, and a native glassy popover.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="522" y="124" width="748" height="692" rx="34" fill="#FBF6F0"/>
+    <rect x="522" y="124" width="748" height="38" rx="34" fill="#EAE1D4"/>
+    <circle cx="554" cy="143" r="6" fill="#B1A292"/>
+    <circle cx="576" cy="143" r="6" fill="#B1A292"/>
+    <circle cx="598" cy="143" r="6" fill="#B1A292"/>
+    <text x="1122" y="148" fill="#6B5E52" font-size="14" font-family="'SFMono-Regular', Menlo, monospace">9:41 PM</text>
+
+    <rect x="556" y="188" width="680" height="596" rx="26" fill="url(#panel)"/>
+
+    <g opacity="0.95">
+      <circle cx="592" cy="222" r="15" fill="#25201D" stroke="#49403A"/>
+      <path d="M585 222H599" stroke="#F5F0E8" stroke-width="2" stroke-linecap="round"/>
+      <path d="M592 215V229" stroke="#F5F0E8" stroke-width="2" stroke-linecap="round"/>
+      <rect x="1146" y="208" width="26" height="26" rx="13" fill="#25201D" stroke="#49403A"/>
+      <path d="M1159 214L1167 222L1159 230" stroke="#D8CDC0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="1186" y="208" width="26" height="26" rx="13" fill="#25201D" stroke="#49403A"/>
+      <path d="M1194 222H1204" stroke="#D8CDC0" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <text x="820" y="236" fill="#A9A095" font-size="13" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="4">NOW ON</text>
+    <text x="776" y="262" fill="#F5F0E8" font-size="22" font-family="'SFMono-Regular', Menlo, monospace" font-weight="700" letter-spacing="2">CRITERION 24/7</text>
+
+    <rect x="724" y="286" width="176" height="34" rx="17" fill="#24201D" stroke="#423A35"/>
+    <rect x="728" y="290" width="84" height="26" rx="13" fill="#C7652D"/>
+    <text x="756" y="307" fill="#FFF8F1" font-size="13" font-family="'SFMono-Regular', Menlo, monospace" font-weight="700">Film</text>
+    <text x="830" y="307" fill="#A9A095" font-size="13" font-family="'SFMono-Regular', Menlo, monospace">Soundtrack</text>
+
+    <rect x="588" y="348" width="240" height="326" rx="18" fill="url(#poster)"/>
+    <rect x="604" y="364" width="208" height="294" rx="12" fill="#0F0D0C" fill-opacity="0.18" stroke="#F8D3A5" stroke-opacity="0.36"/>
+    <text x="710" y="496" text-anchor="middle" fill="#F5EBDD" font-size="18" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="4">LE</text>
+    <text x="710" y="540" text-anchor="middle" fill="#FFF7EC" font-size="44" font-family="Georgia, serif" font-weight="700">SAMOURAI</text>
+    <text x="710" y="574" text-anchor="middle" fill="#F8D3A5" font-size="15" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="4">JEAN-PIERRE MELVILLE</text>
+
+    <rect x="866" y="348" width="318" height="12" rx="6" fill="#322B27"/>
+    <rect x="866" y="348" width="196" height="12" rx="6" fill="#D77A3B"/>
+    <text x="868" y="382" fill="#B7ADA0" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">01:12:48</text>
+    <text x="1118" y="382" fill="#B7ADA0" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">105 MIN</text>
+
+    <text x="866" y="430" fill="#FFF8F1" font-size="30" font-family="Georgia, serif" font-weight="700">Le Samourai</text>
+    <text x="866" y="462" fill="#D0C6BA" font-size="16" font-family="'SFMono-Regular', Menlo, monospace">1967  ·  Jean-Pierre Melville  ·  France</text>
+    <text x="866" y="500" fill="#A9A095" font-size="17" font-family="'SFMono-Regular', Menlo, monospace">Stoic hitman. Blue-gray Paris. Precision cinema.</text>
+
+    <rect x="866" y="534" width="144" height="42" rx="12" fill="#C7652D"/>
+    <rect x="1020" y="534" width="164" height="42" rx="12" fill="#2B2623" stroke="#4C423C"/>
+    <rect x="866" y="588" width="154" height="42" rx="12" fill="#2B2623" stroke="#4C423C"/>
+    <rect x="1032" y="588" width="152" height="42" rx="12" fill="#2B2623" stroke="#4C423C"/>
+    <text x="912" y="560" fill="#FFF8F1" font-size="14" font-family="'SFMono-Regular', Menlo, monospace" font-weight="700">Stream</text>
+    <text x="1070" y="560" fill="#D8CDC0" font-size="14" font-family="'SFMono-Regular', Menlo, monospace">Letterboxd</text>
+    <text x="916" y="614" fill="#D8CDC0" font-size="14" font-family="'SFMono-Regular', Menlo, monospace">Copy Title</text>
+    <text x="1082" y="614" fill="#D8CDC0" font-size="14" font-family="'SFMono-Regular', Menlo, monospace">Browse</text>
+
+    <rect x="588" y="708" width="596" height="46" rx="14" fill="#221E1C" stroke="#453D38"/>
+    <circle cx="618" cy="731" r="7" fill="#D77A3B"/>
+    <circle cx="662" cy="731" r="7" fill="#938479"/>
+    <circle cx="706" cy="731" r="7" fill="#938479"/>
+    <text x="1120" y="736" fill="#938479" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">TMDB metadata · local cache</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="1096" y="414" width="232" height="272" rx="18" fill="#FCF7F1" stroke="#D7CCBC"/>
+    <text x="1124" y="448" fill="#A24A32" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">SOUNDTRACK</text>
+    <rect x="1124" y="468" width="84" height="84" rx="16" fill="url(#album)"/>
+    <circle cx="1166" cy="510" r="17" fill="#281F19" fill-opacity="0.36"/>
+    <circle cx="1166" cy="510" r="5" fill="#F7E9D4"/>
+    <text x="1226" y="496" fill="#1B1714" font-size="18" font-family="Georgia, serif" font-weight="700">Francois de</text>
+    <text x="1226" y="520" fill="#1B1714" font-size="18" font-family="Georgia, serif" font-weight="700">Roubaix</text>
+    <text x="1226" y="542" fill="#6B5E52" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">Discogs · 92% confidence</text>
+
+    <rect x="1124" y="580" width="176" height="26" rx="13" fill="#F2E6D8"/>
+    <text x="1140" y="597" fill="#6B5E52" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">01  Theme d'ouverture</text>
+    <rect x="1124" y="614" width="176" height="26" rx="13" fill="#F2E6D8"/>
+    <text x="1140" y="631" fill="#6B5E52" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">02  Rue Jenner la nuit</text>
+    <rect x="1124" y="648" width="176" height="26" rx="13" fill="#F2E6D8"/>
+    <text x="1140" y="665" fill="#6B5E52" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">03  Epilogue</text>
+  </g>
+
+  <text x="120" y="842" fill="#1B1714" font-size="16" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">README VISUAL</text>
+  <text x="120" y="878" fill="#6B5E52" font-size="20" font-family="Georgia, serif">Original SVG illustration based on the actual menu bar popover, not the reference-site video stills.</text>
+</svg>

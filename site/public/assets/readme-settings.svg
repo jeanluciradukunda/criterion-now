@@ -1,0 +1,104 @@
+<svg width="1280" height="920" viewBox="0 0 1280 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="110" y1="56" x2="1160" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F2E8"/>
+      <stop offset="1" stop-color="#E4DBCE"/>
+    </linearGradient>
+    <linearGradient id="radarFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#D77A3B" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#A42E1F" stop-opacity="0.28"/>
+    </linearGradient>
+    <filter id="windowShadow" x="170" y="104" width="940" height="718" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="26"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.0666667 0 0 0 0 0.054902 0 0 0 0.2 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="920" fill="url(#bg)"/>
+  <rect x="54" y="54" width="1172" height="812" rx="30" stroke="#D8CCBC"/>
+  <text x="108" y="126" fill="#A24A32" font-size="16" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="4">SETTINGS</text>
+  <text x="108" y="170" fill="#1B1714" font-size="58" font-family="Georgia, serif" font-weight="700">Developer controls that look native.</text>
+  <text x="108" y="214" fill="#6B5E52" font-size="22" font-family="'SFMono-Regular', Menlo, monospace">The README visuals now match the app's tabbed settings window.</text>
+
+  <g filter="url(#windowShadow)">
+    <rect x="218" y="146" width="844" height="622" rx="28" fill="#FBF6F0"/>
+    <rect x="218" y="146" width="844" height="38" rx="28" fill="#EAE1D4"/>
+    <circle cx="250" cy="165" r="6" fill="#B1A292"/>
+    <circle cx="272" cy="165" r="6" fill="#B1A292"/>
+    <circle cx="294" cy="165" r="6" fill="#B1A292"/>
+
+    <rect x="246" y="206" width="788" height="532" rx="24" fill="#1B1714"/>
+
+    <rect x="284" y="234" width="272" height="42" rx="14" fill="#26211E" stroke="#49403A"/>
+    <rect x="288" y="238" width="84" height="34" rx="12" fill="#3C322C"/>
+    <rect x="376" y="238" width="94" height="34" rx="12" fill="#3C322C"/>
+    <rect x="474" y="238" width="78" height="34" rx="12" fill="#C7652D"/>
+    <text x="311" y="259" fill="#D0C6BA" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">General</text>
+    <text x="393" y="259" fill="#D0C6BA" font-size="12" font-family="'SFMono-Regular', Menlo, monospace">Integrations</text>
+    <text x="494" y="259" fill="#FFF8F1" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" font-weight="700">Developer</text>
+
+    <rect x="286" y="308" width="338" height="380" rx="20" fill="#25201D" stroke="#47403A"/>
+    <text x="312" y="338" fill="#A9A095" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">API KEYS</text>
+
+    <rect x="312" y="360" width="286" height="50" rx="14" fill="#211C19"/>
+    <text x="334" y="382" fill="#F5F0E8" font-size="14" font-family="Georgia, serif" font-weight="700">TMDB Bearer Token</text>
+    <text x="334" y="400" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace">cn_secret_tmdb_bearer_token</text>
+
+    <rect x="312" y="424" width="286" height="50" rx="14" fill="#211C19"/>
+    <text x="334" y="446" fill="#F5F0E8" font-size="14" font-family="Georgia, serif" font-weight="700">Last.fm API Key</text>
+    <text x="334" y="464" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace">cn_secret_lastfm_api_key</text>
+
+    <rect x="312" y="488" width="286" height="50" rx="14" fill="#211C19"/>
+    <text x="334" y="510" fill="#F5F0E8" font-size="14" font-family="Georgia, serif" font-weight="700">Discogs Token</text>
+    <text x="334" y="528" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace">cn_secret_discogs_token</text>
+
+    <text x="312" y="580" fill="#A9A095" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">ACCENT COLOR</text>
+    <circle cx="334" cy="614" r="13" fill="#D77A3B"/>
+    <circle cx="374" cy="614" r="13" fill="#C0392B"/>
+    <circle cx="414" cy="614" r="13" fill="#4D8C7A"/>
+    <circle cx="454" cy="614" r="13" fill="#64748B"/>
+    <circle cx="334" cy="614" r="18" stroke="#FFF8F1" stroke-width="2"/>
+
+    <rect x="656" y="308" width="350" height="220" rx="20" fill="#25201D" stroke="#47403A"/>
+    <text x="682" y="338" fill="#A9A095" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">SCORING WEIGHTS</text>
+
+    <g transform="translate(832 418)">
+      <polygon points="0,-90 77,-45 77,45 0,90 -77,45 -77,-45" fill="none" stroke="#50463F"/>
+      <polygon points="0,-62 54,-31 54,31 0,62 -54,31 -54,-31" fill="none" stroke="#50463F"/>
+      <polygon points="0,-32 28,-16 28,16 0,32 -28,16 -28,-16" fill="none" stroke="#50463F"/>
+      <line x1="0" y1="-104" x2="0" y2="104" stroke="#50463F"/>
+      <line x1="-90" y1="-52" x2="90" y2="52" stroke="#50463F"/>
+      <line x1="-90" y1="52" x2="90" y2="-52" stroke="#50463F"/>
+      <polygon points="0,-78 59,-18 47,38 0,56 -66,20 -44,-30" fill="url(#radarFill)" stroke="#D77A3B" stroke-width="2"/>
+      <text x="-6" y="-112" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">TITLE</text>
+      <text x="108" y="-28" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">SOURCE</text>
+      <text x="108" y="42" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">CONTENT</text>
+      <text x="-6" y="126" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">YEAR</text>
+      <text x="-112" y="42" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">COMPOSER</text>
+      <text x="-112" y="-28" fill="#938479" font-size="11" font-family="'SFMono-Regular', Menlo, monospace" text-anchor="middle">KEYWORDS</text>
+    </g>
+
+    <rect x="656" y="548" width="350" height="140" rx="20" fill="#25201D" stroke="#47403A"/>
+    <text x="682" y="578" fill="#A9A095" font-size="12" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">TRUST BY SOURCE</text>
+
+    <text x="682" y="614" fill="#F5F0E8" font-size="13" font-family="'SFMono-Regular', Menlo, monospace">Wikidata</text>
+    <rect x="772" y="604" width="184" height="12" rx="6" fill="#322B27"/>
+    <rect x="772" y="604" width="164" height="12" rx="6" fill="#D77A3B"/>
+
+    <text x="682" y="644" fill="#F5F0E8" font-size="13" font-family="'SFMono-Regular', Menlo, monospace">MusicBrainz</text>
+    <rect x="772" y="634" width="184" height="12" rx="6" fill="#322B27"/>
+    <rect x="772" y="634" width="132" height="12" rx="6" fill="#C7652D"/>
+
+    <text x="682" y="674" fill="#F5F0E8" font-size="13" font-family="'SFMono-Regular', Menlo, monospace">Last.fm</text>
+    <rect x="772" y="664" width="184" height="12" rx="6" fill="#322B27"/>
+    <rect x="772" y="664" width="74" height="12" rx="6" fill="#A24A32"/>
+  </g>
+
+  <text x="108" y="796" fill="#1B1714" font-size="16" font-family="'SFMono-Regular', Menlo, monospace" letter-spacing="3">TABBED SETTINGS WINDOW</text>
+  <text x="108" y="832" fill="#6B5E52" font-size="19" font-family="Georgia, serif">Developer tab, radar chart, source trust, accent palette, and API rows.</text>
+</svg>

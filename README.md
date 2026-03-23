@@ -9,12 +9,19 @@
     <img alt="SolidJS landing site" src="https://img.shields.io/badge/Site-SolidJS%20%2B%20Vite-0F766E?style=flat-square&logo=solid" />
     <img alt="MIT license" src="https://img.shields.io/badge/License-MIT-374151?style=flat-square" />
   </p>
+  <p>
+    <a href="https://jeanluciradukunda.github.io/criterion-now/">Live Site</a>
+    ·
+    <a href="https://github.com/jeanluciradukunda/criterion-now/releases/latest">Latest Release</a>
+    ·
+    <a href="https://github.com/jeanluciradukunda/criterion-now">Source</a>
+  </p>
 </div>
 
 Criterion Now turns the Criterion Channel into something that feels closer to a living repertory cinema than a browser tab. It sits in the menu bar, tells you exactly what is playing on the 24/7 stream, opens the stream in a floating mini player, surfaces soundtrack matches from multiple music sources, mirrors your Criterion `My List`, and keeps a running viewing history while the app is open.
 
 <p align="center">
-  <img src="site/public/assets/library-shot-01.png" alt="Criterion Now now playing and soundtrack view" width="880" />
+  <img src="site/public/assets/readme-now-playing.svg" alt="Criterion Now now playing interface illustration" width="980" />
 </p>
 
 ## Why It Feels Different
@@ -27,21 +34,21 @@ Criterion Now turns the Criterion Channel into something that feels closer to a 
 | --- | --- | --- |
 | Logs every detected film change and renders a clean timeline grouped by day. | Maps your library by country on a 3D globe and breaks it down by directors, decades, and totals. | SwiftUI + AppKit, `MenuBarExtra`, a shared `WKWebView` session for streaming and scraping, and local JSON persistence for fast reloads. |
 
-## Screen Gallery
+## Interface Gallery
 
 <table>
   <tr>
     <td width="33%">
-      <img src="site/public/assets/library-shot-01.png" alt="Now playing and soundtrack view" />
-      <p><strong>Now Playing + Soundtrack</strong><br />Current film, progress tracking, soundtrack art, and tracks in one compact popover.</p>
+      <img src="site/public/assets/readme-now-playing.svg" alt="Now playing and soundtrack interface illustration" />
+      <p><strong>Now Playing + Soundtrack</strong><br />Original SVG artwork based on the actual popover, progress bar, actions, and soundtrack flow.</p>
     </td>
     <td width="33%">
-      <img src="site/public/assets/library-shot-02.png" alt="Library flip cards view" />
-      <p><strong>Library Flip Cards</strong><br />Your saved films as a tactile browser with search, decade chips, and country filters.</p>
+      <img src="site/public/assets/readme-library.svg" alt="Library flip cards interface illustration" />
+      <p><strong>Library Flip Cards</strong><br />Inline card browser with search, filters, and a focused film that drives the soundtrack context.</p>
     </td>
     <td width="33%">
-      <img src="site/public/assets/library-shot-03.png" alt="Settings and soundtrack scoring view" />
-      <p><strong>Developer Controls</strong><br />Tunable soundtrack scoring weights, integration settings, and app metrics.</p>
+      <img src="site/public/assets/readme-settings.svg" alt="Settings and scoring interface illustration" />
+      <p><strong>Developer Controls</strong><br />Tabbed settings, API keys, accent palette, and the soundtrack scoring radar.</p>
     </td>
   </tr>
 </table>
@@ -91,7 +98,7 @@ xcodegen generate
 
 ## Companion Site
 
-The landing page is a separate SolidJS app under [`site/`](site).
+The landing page is a separate SolidJS app under [`site/`](site). The published URL is [https://jeanluciradukunda.github.io/criterion-now/](https://jeanluciradukunda.github.io/criterion-now/).
 
 ```bash
 cd site
@@ -106,7 +113,7 @@ cd site
 pnpm build
 ```
 
-The Vite base path is configured for GitHub Pages in [`site/vite.config.ts`](site/vite.config.ts).
+The Vite base path is configured for GitHub Pages in [`site/vite.config.ts`](site/vite.config.ts), which is why the repo only needed the deployment path `/criterion-now/` until now.
 
 ## Project Structure
 
