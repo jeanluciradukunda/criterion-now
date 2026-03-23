@@ -384,3 +384,108 @@ export function FilmAward() {
     </svg>
   );
 }
+
+export function OscarStatuette() {
+  return (
+    <svg viewBox="0 0 130 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="28" y="226" width="74" height="16" rx="3" fill="#2c2420" />
+      <rect x="36" y="216" width="58" height="12" rx="3" fill="#1a1613" />
+      <ellipse cx="65" cy="210" rx="26" ry="10" fill="#d4a843" />
+      <path d="M55 58C55 52.4772 59.4772 48 65 48C70.5228 48 75 52.4772 75 58V74C75 79.5228 70.5228 84 65 84C59.4772 84 55 79.5228 55 74V58Z" fill="#d4a843" />
+      <circle cx="65" cy="34" r="14" fill="#d4a843" />
+      <path d="M46 92L57 72H73L84 92L76 120L84 196H70L65 140L60 196H46L54 120L46 92Z" fill="#d4a843" />
+      <path d="M52 98L33 132" stroke="#d4a843" stroke-width="8" stroke-linecap="round" />
+      <path d="M78 98L97 132" stroke="#d4a843" stroke-width="8" stroke-linecap="round" />
+      <path d="M58 196L50 214" stroke="#d4a843" stroke-width="8" stroke-linecap="round" />
+      <path d="M72 196L80 214" stroke="#d4a843" stroke-width="8" stroke-linecap="round" />
+      <text x="65" y="237" font-family="Departure Mono, monospace" font-size="5" fill="#d4a843" text-anchor="middle" letter-spacing="0.1em">BEST PICTURE</text>
+    </svg>
+  );
+}
+
+export function TheatreFacade() {
+  return (
+    <svg viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="22" y="88" width="236" height="118" rx="4" fill="#e6dbc8" stroke="#8b2017" stroke-width="1.5" />
+      <rect x="42" y="116" width="38" height="72" fill="#d8ccb8" stroke="#9c8e7e" stroke-width="0.6" />
+      <rect x="200" y="116" width="38" height="72" fill="#d8ccb8" stroke="#9c8e7e" stroke-width="0.6" />
+      <rect x="98" y="126" width="84" height="62" fill="#1a1613" />
+      <path d="M140 126V188" stroke="#8b2017" stroke-width="1" stroke-dasharray="3 3" />
+      <path d="M98 126C116 140 124 148 140 170C156 148 164 140 182 126V188H98V126Z" fill="#8b2017" opacity="0.78" />
+      <rect x="32" y="52" width="216" height="44" rx="4" fill="#1a1613" stroke="#8b2017" stroke-width="1.5" />
+      <rect x="42" y="62" width="196" height="24" rx="2" fill="#2c2420" />
+      <text x="140" y="71" font-family="Departure Mono, monospace" font-size="7" fill="#d4a843" text-anchor="middle" letter-spacing="0.2em">REVIVAL HOUSE</text>
+      <text x="140" y="82" font-family="Departure Mono, monospace" font-size="8" fill="#e6dbc8" text-anchor="middle">TONIGHT ONLY</text>
+      {[
+        42, 58, 74, 90, 106, 122, 138, 154, 170, 186, 202, 218, 234
+      ].map((x) => (
+        <circle cx={x} cy="100" r="3" fill="#d4a843" />
+      ))}
+      <path d="M60 52L74 16H206L220 52H60Z" fill="#c0392b" stroke="#8b2017" stroke-width="1.5" />
+      <text x="140" y="35" font-family="Departure Mono, monospace" font-size="8" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.18em">CINEMA</text>
+      <text x="140" y="213" font-family="Departure Mono, monospace" font-size="6" fill="#6b5e52" text-anchor="middle" letter-spacing="0.12em">SCREEN 1 · BOX OFFICE OPEN</text>
+    </svg>
+  );
+}
+
+export function BoxOfficeBooth() {
+  return (
+    <svg viewBox="0 0 220 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="26" y="52" width="168" height="168" rx="6" fill="#e6dbc8" stroke="#8b2017" stroke-width="1.4" />
+      <rect x="42" y="90" width="136" height="80" rx="4" fill="#1a1613" />
+      <rect x="54" y="102" width="112" height="56" rx="3" fill="#201b18" stroke="#d4a843" stroke-width="0.7" />
+      <rect x="96" y="170" width="28" height="8" rx="2" fill="#2c2420" />
+      <rect x="82" y="182" width="56" height="12" rx="3" fill="#d8ccb8" stroke="#9c8e7e" stroke-width="0.6" />
+      <path d="M26 52L46 18H174L194 52H26Z" fill="#c0392b" stroke="#8b2017" stroke-width="1.4" />
+      {[
+        46, 60, 74, 88, 102, 116, 130, 144, 158, 172
+      ].map((x) => (
+        <line x1={x} y1="18" x2={x - 10} y2="52" stroke="#e6dbc8" stroke-width="8" opacity="0.25" />
+      ))}
+      <text x="110" y="38" font-family="Departure Mono, monospace" font-size="9" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.18em">BOX OFFICE</text>
+      <text x="110" y="118" font-family="Departure Mono, monospace" font-size="7" fill="#d4a843" text-anchor="middle" letter-spacing="0.12em">TICKETS · PASSES · OPEN</text>
+      <text x="110" y="142" font-family="Departure Mono, monospace" font-size="14" fill="#e6dbc8" text-anchor="middle" font-weight="bold">NEXT SHOW</text>
+      <text x="110" y="156" font-family="Departure Mono, monospace" font-size="8" fill="#9c8e7e" text-anchor="middle">24/7 PROGRAM</text>
+      <circle cx="60" cy="206" r="6" fill="#d4a843" opacity="0.4" />
+      <circle cx="160" cy="206" r="6" fill="#d4a843" opacity="0.4" />
+    </svg>
+  );
+}
+
+export function JanusCard() {
+  return (
+    <svg viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="2" y="2" width="176" height="216" rx="8" fill="#1a1613" stroke="#d4a843" stroke-width="1.2" />
+      <rect x="14" y="14" width="152" height="192" rx="4" fill="none" stroke="#8b2017" stroke-width="0.8" opacity="0.7" />
+      <circle cx="90" cy="92" r="42" fill="none" stroke="#d4a843" stroke-width="1.2" />
+      <path d="M90 52C78 58 72 70 72 90C72 110 78 122 90 132C102 122 108 110 108 90C108 70 102 58 90 52Z" fill="#c0392b" opacity="0.92" />
+      <path d="M90 52C83 60 80 72 80 90C80 108 83 120 90 132" stroke="#f5f0e8" stroke-width="0.8" opacity="0.55" />
+      <path d="M90 52C97 60 100 72 100 90C100 108 97 120 90 132" stroke="#f5f0e8" stroke-width="0.8" opacity="0.55" />
+      <circle cx="76" cy="86" r="2.4" fill="#f5f0e8" />
+      <circle cx="104" cy="86" r="2.4" fill="#f5f0e8" />
+      <text x="90" y="34" font-family="Departure Mono, monospace" font-size="8" fill="#d4a843" text-anchor="middle" letter-spacing="0.2em">JANUS FILMS</text>
+      <text x="90" y="156" font-family="Departure Mono, monospace" font-size="7" fill="#e6dbc8" text-anchor="middle" letter-spacing="0.15em">WORLD CINEMA</text>
+      <text x="90" y="170" font-family="Departure Mono, monospace" font-size="7" fill="#9c8e7e" text-anchor="middle">DISTRIBUTOR CARD</text>
+      <text x="90" y="192" font-family="Departure Mono, monospace" font-size="5" fill="#6b5e52" text-anchor="middle" letter-spacing="0.1em">DOUBLE-FACE REPERTORY SEAL</text>
+    </svg>
+  );
+}
+
+export function FestivalLaurels() {
+  return (
+    <svg viewBox="0 0 240 170" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <ellipse cx={52 - i * 4} cy={42 + i * 16} rx="10" ry="5" transform={`rotate(${-42 + i * 7} ${52 - i * 4} ${42 + i * 16})`} fill="#d4a843" />
+      ))}
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <ellipse cx={188 + i * 4} cy={42 + i * 16} rx="10" ry="5" transform={`rotate(${42 - i * 7} ${188 + i * 4} ${42 + i * 16})`} fill="#d4a843" />
+      ))}
+      <path d="M72 24C58 42 52 70 52 118" stroke="#d4a843" stroke-width="2" />
+      <path d="M168 24C182 42 188 70 188 118" stroke="#d4a843" stroke-width="2" />
+      <text x="120" y="58" font-family="Departure Mono, monospace" font-size="8" fill="#8b2017" text-anchor="middle" letter-spacing="0.22em">OFFICIAL</text>
+      <text x="120" y="84" font-family="Departure Mono, monospace" font-size="16" fill="#1a1613" text-anchor="middle" font-weight="bold">SELECTION</text>
+      <text x="120" y="104" font-family="Departure Mono, monospace" font-size="8" fill="#6b5e52" text-anchor="middle" letter-spacing="0.18em">REPERTORY CINEMA</text>
+      <text x="120" y="132" font-family="Departure Mono, monospace" font-size="7" fill="#9c8e7e" text-anchor="middle">FROM THE CRITERION NOW FESTIVAL DESK</text>
+    </svg>
+  );
+}

@@ -574,6 +574,11 @@ p { font-size: 1rem; line-height: 1.7; color: var(--mid); }
 .artifact-megaphone { width: 190px; }
 .artifact-chair { width: 130px; }
 .artifact-award { width: 100px; }
+.artifact-oscar { width: 110px; }
+.artifact-theatre { width: 230px; }
+.artifact-boxoffice { width: 180px; }
+.artifact-janus { width: 150px; }
+.artifact-laurels { width: 190px; }
 
 /* Wobble hint — subtle nudge to show artifacts are draggable */
 .wobble-hint {
