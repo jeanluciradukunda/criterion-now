@@ -579,6 +579,19 @@ p { font-size: 1rem; line-height: 1.7; color: var(--mid); }
 .artifact-boxoffice { width: 180px; }
 .artifact-janus { width: 150px; }
 .artifact-laurels { width: 190px; }
+.artifact-flashlight { width: 180px; }
+.artifact-ticketstrip { width: 220px; }
+.artifact-lens { width: 150px; }
+.artifact-presskit { width: 200px; }
+.artifact-envelope { width: 190px; }
+.artifact-arrow { width: 190px; }
+.artifact-notebook { width: 140px; }
+.artifact-calendar { width: 170px; }
+.artifact-seat { width: 120px; }
+.artifact-stamp { width: 110px; }
+.artifact-curtain { width: 190px; }
+.artifact-canister { width: 140px; }
+.artifact-ledger { width: 190px; }
 
 /* Wobble hint — subtle nudge to show artifacts are draggable */
 .wobble-hint {

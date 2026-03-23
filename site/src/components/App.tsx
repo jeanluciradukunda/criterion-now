@@ -1,7 +1,7 @@
 import { For, createSignal, onCleanup, onMount } from "solid-js";
 import { downloadLinks, featurePanels, footerFacts, galleryFrames, programRows } from "../content";
 import { DraggableArtifact } from "./DraggableArtifact";
-import { TicketStub, FilmCanLabel, CueSheet, ScreeningProgram, TimelineStrip, DirectorSlate, ProjectorReel, SeasonPass, PopcornBox, TornTicket, FilmRating, Filmstrip3D, VinylRecord, Megaphone, DirectorsChair, FilmAward, OscarStatuette, TheatreFacade, BoxOfficeBooth, JanusCard, FestivalLaurels } from "./CinemaArtifacts";
+import { TicketStub, FilmCanLabel, CueSheet, ScreeningProgram, TimelineStrip, DirectorSlate, ProjectorReel, SeasonPass, PopcornBox, TornTicket, FilmRating, Filmstrip3D, VinylRecord, Megaphone, DirectorsChair, FilmAward, OscarStatuette, TheatreFacade, BoxOfficeBooth, JanusCard, FestivalLaurels, UsherFlashlight, TicketStrip, ProjectionLens, PressKitFolder, ProgramEnvelope, MarqueeArrow, CriticNotebook, RepertoryCalendar, CinemaSeat, AdmissionStamp, VelvetCurtain, FilmCanister, BoxOfficeLedger } from "./CinemaArtifacts";
 import { featureDiagrams } from "./FeatureDiagrams";
 import { AppMockup } from "./AppMockup";
 
@@ -321,11 +321,11 @@ export function App() {
           <DraggableArtifact class="artifact-oscar wobble-hint" rotation={6} parallax={0.06} style="top: 1rem; right: 6rem;">
             <OscarStatuette />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-theatre wobble-hint" rotation={-3} parallax={0.05} style="bottom: 1rem; left: 10rem;">
-            <TheatreFacade />
+          <DraggableArtifact class="artifact-flashlight wobble-hint" rotation={-5} parallax={0.05} style="bottom: 1rem; left: 10rem;">
+            <UsherFlashlight />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-laurels wobble-hint" rotation={7} parallax={0.07} style="bottom: 2rem; right: 14rem;">
-            <FestivalLaurels />
+          <DraggableArtifact class="artifact-ticketstrip wobble-hint" rotation={7} parallax={0.07} style="bottom: 1rem; right: 6rem;">
+            <TicketStrip />
           </DraggableArtifact>
         </div>
       </section>
@@ -350,17 +350,17 @@ export function App() {
           </For>
         </div>
         <div class="artifact-field">
-          <DraggableArtifact class="artifact-janus wobble-hint" rotation={-6} parallax={0.05} style="top: 4rem; left: 1rem;">
-            <JanusCard />
+          <DraggableArtifact class="artifact-lens wobble-hint" rotation={-6} parallax={0.05} style="top: 4rem; left: 1rem;">
+            <ProjectionLens />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-theatre wobble-hint" rotation={4} parallax={0.03} style="top: 10rem; right: 2rem;">
-            <TheatreFacade />
+          <DraggableArtifact class="artifact-presskit wobble-hint" rotation={4} parallax={0.03} style="top: 8rem; right: 1rem;">
+            <PressKitFolder />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-boxoffice wobble-hint" rotation={-2} parallax={0.06} style="bottom: 2rem; left: 4rem;">
-            <BoxOfficeBooth />
+          <DraggableArtifact class="artifact-envelope wobble-hint" rotation={-2} parallax={0.06} style="bottom: 2rem; left: 4rem;">
+            <ProgramEnvelope />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-oscar wobble-hint" rotation={5} parallax={0.04} style="bottom: 2rem; right: 10rem;">
-            <OscarStatuette />
+          <DraggableArtifact class="artifact-arrow wobble-hint" rotation={5} parallax={0.04} style="bottom: 2rem; right: 4rem;">
+            <MarqueeArrow />
           </DraggableArtifact>
         </div>
       </section>
@@ -379,17 +379,17 @@ export function App() {
           </div>
         </div>
         <div class="artifact-field">
-          <DraggableArtifact class="artifact-janus wobble-hint" rotation={-3} parallax={0.05} style="top: 3rem; left: 0.5rem;">
-            <JanusCard />
+          <DraggableArtifact class="artifact-notebook wobble-hint" rotation={-3} parallax={0.05} style="top: 2rem; left: 0.5rem;">
+            <CriticNotebook />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-boxoffice wobble-hint" rotation={6} parallax={0.07} style="top: 2rem; right: 4rem;">
-            <BoxOfficeBooth />
+          <DraggableArtifact class="artifact-calendar wobble-hint" rotation={6} parallax={0.07} style="top: 2rem; right: 4rem;">
+            <RepertoryCalendar />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-oscar wobble-hint" rotation={-5} parallax={0.04} style="bottom: 1rem; left: 7rem;">
-            <OscarStatuette />
+          <DraggableArtifact class="artifact-seat wobble-hint" rotation={-5} parallax={0.04} style="bottom: 1rem; left: 7rem;">
+            <CinemaSeat />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-laurels wobble-hint" rotation={5} parallax={0.06} style="bottom: 2rem; right: 8rem;">
-            <FestivalLaurels />
+          <DraggableArtifact class="artifact-stamp wobble-hint" rotation={5} parallax={0.06} style="bottom: 2rem; right: 8rem;">
+            <AdmissionStamp />
           </DraggableArtifact>
         </div>
       </section>
@@ -442,14 +442,14 @@ export function App() {
           </p>
         </div>
         <div class="artifact-field">
-          <DraggableArtifact class="artifact-theatre wobble-hint" rotation={2} parallax={0.05} style="top: 3rem; right: 1rem;">
-            <TheatreFacade />
+          <DraggableArtifact class="artifact-curtain wobble-hint" rotation={2} parallax={0.05} style="top: 2rem; right: 1rem;">
+            <VelvetCurtain />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-laurels wobble-hint" rotation={-5} parallax={0.04} style="bottom: 8rem; left: 2rem;">
-            <FestivalLaurels />
+          <DraggableArtifact class="artifact-canister wobble-hint" rotation={-5} parallax={0.04} style="bottom: 7rem; left: 2rem;">
+            <FilmCanister />
           </DraggableArtifact>
-          <DraggableArtifact class="artifact-boxoffice wobble-hint" rotation={7} parallax={0.06} style="bottom: 6rem; right: 16rem;">
-            <BoxOfficeBooth />
+          <DraggableArtifact class="artifact-ledger wobble-hint" rotation={7} parallax={0.06} style="bottom: 6rem; right: 10rem;">
+            <BoxOfficeLedger />
           </DraggableArtifact>
         </div>
       </footer>

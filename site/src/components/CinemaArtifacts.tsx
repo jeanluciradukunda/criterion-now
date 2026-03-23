@@ -489,3 +489,225 @@ export function FestivalLaurels() {
     </svg>
   );
 }
+
+export function UsherFlashlight() {
+  return (
+    <svg viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <path d="M130 54L214 18V122L130 86Z" fill="#d4a843" opacity="0.18" />
+      <path d="M42 74L96 52L132 70L78 92Z" fill="#2c2420" stroke="#1a1613" stroke-width="1.2" />
+      <path d="M30 62L58 50L84 80L56 92Z" fill="#c0392b" stroke="#8b2017" stroke-width="1.2" />
+      <rect x="10" y="62" width="24" height="18" rx="4" fill="#1a1613" />
+      <circle cx="138" cy="70" r="10" fill="#e6dbc8" opacity="0.6" />
+      <circle cx="138" cy="70" r="5" fill="#f5f0e8" />
+      <text x="74" y="116" font-family="Departure Mono, monospace" font-size="8" fill="#6b5e52" letter-spacing="0.12em">USHER LIGHT</text>
+    </svg>
+  );
+}
+
+export function TicketStrip() {
+  return (
+    <svg viewBox="0 0 300 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="2" y="10" width="296" height="90" rx="4" fill="#e6dbc8" stroke="#8b2017" stroke-width="1.4" />
+      {[102, 202].map((x) => (
+        <line x1={x} y1="10" x2={x} y2="100" stroke="#8b2017" stroke-width="1" stroke-dasharray="4 4" />
+      ))}
+      {[102, 202].map((x) => (
+        <>
+          <circle cx={x} cy="10" r="6" fill="#f5f0e8" />
+          <circle cx={x} cy="100" r="6" fill="#f5f0e8" />
+        </>
+      ))}
+      <text x="22" y="34" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" letter-spacing="0.14em">ADMISSION STRIP</text>
+      <text x="22" y="56" font-family="Departure Mono, monospace" font-size="16" fill="#1a1613" font-weight="bold">MATINEE</text>
+      <text x="22" y="76" font-family="Departure Mono, monospace" font-size="8" fill="#9c8e7e">HOUSE A · REVIVAL</text>
+      <text x="122" y="34" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" letter-spacing="0.14em">STUB</text>
+      <text x="122" y="58" font-family="Departure Mono, monospace" font-size="18" fill="#c0392b" font-weight="bold">CN</text>
+      <text x="122" y="76" font-family="Departure Mono, monospace" font-size="8" fill="#9c8e7e">KEEP THIS</text>
+      <text x="222" y="34" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" letter-spacing="0.14em">LATE SHOW</text>
+      <text x="222" y="56" font-family="Departure Mono, monospace" font-size="16" fill="#1a1613" font-weight="bold">24/7</text>
+      <text x="222" y="76" font-family="Departure Mono, monospace" font-size="8" fill="#9c8e7e">CONTINUOUS</text>
+    </svg>
+  );
+}
+
+export function ProjectionLens() {
+  return (
+    <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <circle cx="90" cy="90" r="56" fill="#2c2420" stroke="#1a1613" stroke-width="2" />
+      <circle cx="90" cy="90" r="42" fill="#1a1613" stroke="#6b5e52" stroke-width="1" />
+      <circle cx="90" cy="90" r="28" fill="#23313a" stroke="#d4a843" stroke-width="1.2" />
+      <circle cx="90" cy="90" r="14" fill="#5d8798" opacity="0.7" />
+      <ellipse cx="78" cy="76" rx="22" ry="10" fill="white" opacity="0.08" transform="rotate(-30 78 76)" />
+      <rect x="46" y="70" width="18" height="40" rx="4" fill="#1a1613" />
+      <rect x="116" y="70" width="18" height="40" rx="4" fill="#1a1613" />
+      <text x="90" y="154" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" text-anchor="middle" letter-spacing="0.14em">PROJECTION LENS</text>
+    </svg>
+  );
+}
+
+export function PressKitFolder() {
+  return (
+    <svg viewBox="0 0 250 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <path d="M8 42H102L118 26H242V168H8V42Z" fill="#d8ccb8" stroke="#8b2017" stroke-width="1.4" />
+      <rect x="22" y="58" width="206" height="96" rx="4" fill="#efe6d8" stroke="#9c8e7e" stroke-width="0.6" />
+      <rect x="22" y="58" width="70" height="20" fill="#c0392b" />
+      <text x="57" y="71" font-family="Departure Mono, monospace" font-size="8" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.16em">PRESS KIT</text>
+      <text x="34" y="96" font-family="Departure Mono, monospace" font-size="8" fill="#1a1613">Synopsis</text>
+      <line x1="92" y1="93" x2="204" y2="93" stroke="#9c8e7e" stroke-width="0.6" />
+      <text x="34" y="116" font-family="Departure Mono, monospace" font-size="8" fill="#1a1613">Cast</text>
+      <line x1="62" y1="113" x2="204" y2="113" stroke="#9c8e7e" stroke-width="0.6" />
+      <text x="34" y="136" font-family="Departure Mono, monospace" font-size="8" fill="#1a1613">Quotes</text>
+      <line x1="76" y1="133" x2="204" y2="133" stroke="#9c8e7e" stroke-width="0.6" />
+      <text x="126" y="28" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" letter-spacing="0.14em">REVIEWER MATERIAL</text>
+    </svg>
+  );
+}
+
+export function ProgramEnvelope() {
+  return (
+    <svg viewBox="0 0 250 170" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="8" y="26" width="234" height="136" rx="6" fill="#e6dbc8" stroke="#8b2017" stroke-width="1.3" />
+      <path d="M8 32L125 106L242 32" stroke="#8b2017" stroke-width="1.2" />
+      <path d="M8 156L92 92" stroke="#9c8e7e" stroke-width="1" />
+      <path d="M242 156L158 92" stroke="#9c8e7e" stroke-width="1" />
+      <circle cx="125" cy="100" r="18" fill="#c0392b" />
+      <text x="125" y="104" font-family="Departure Mono, monospace" font-size="9" fill="#f5f0e8" text-anchor="middle" font-weight="bold">CN</text>
+      <text x="125" y="20" font-family="Departure Mono, monospace" font-size="8" fill="#6b5e52" text-anchor="middle" letter-spacing="0.16em">PROGRAM NOTES</text>
+    </svg>
+  );
+}
+
+export function MarqueeArrow() {
+  return (
+    <svg viewBox="0 0 250 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <path d="M8 24H160L240 60L160 96H8V24Z" fill="#1a1613" stroke="#8b2017" stroke-width="1.5" />
+      <path d="M24 40H156L208 60L156 80H24V40Z" fill="#2c2420" />
+      {[
+        [24, 24], [48, 24], [72, 24], [96, 24], [120, 24], [144, 24], [168, 32], [190, 46], [206, 60], [190, 74], [168, 88], [144, 96], [120, 96], [96, 96], [72, 96], [48, 96], [24, 96]
+      ].map(([cx, cy]) => (
+        <circle cx={cx} cy={cy} r="4" fill="#d4a843" />
+      ))}
+      <text x="92" y="56" font-family="Departure Mono, monospace" font-size="10" fill="#e6dbc8" text-anchor="middle" letter-spacing="0.16em">THIS WAY</text>
+      <text x="92" y="72" font-family="Departure Mono, monospace" font-size="8" fill="#d4a843" text-anchor="middle">TO THE SCREENING</text>
+    </svg>
+  );
+}
+
+export function CriticNotebook() {
+  return (
+    <svg viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="28" y="10" width="128" height="200" rx="4" fill="#efe6d8" stroke="#8b2017" stroke-width="1.2" />
+      <rect x="28" y="10" width="24" height="200" fill="#d8ccb8" />
+      {[26, 48, 70, 92, 114, 136, 158, 180].map((y) => (
+        <circle cx="40" cy={y} r="4" fill="#f5f0e8" stroke="#9c8e7e" stroke-width="0.7" />
+      ))}
+      <text x="92" y="36" font-family="Departure Mono, monospace" font-size="8" fill="#8b2017" text-anchor="middle" letter-spacing="0.18em">CRITIC NOTEBOOK</text>
+      {[60, 82, 104, 126, 148, 170].map((y) => (
+        <line x1="62" y1={y} x2="142" y2={y} stroke="#9c8e7e" stroke-width="0.6" />
+      ))}
+      <text x="66" y="76" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">"Excellent question."</text>
+      <text x="66" y="120" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">"No browser tab needed."</text>
+    </svg>
+  );
+}
+
+export function RepertoryCalendar() {
+  return (
+    <svg viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="10" y="20" width="200" height="150" rx="6" fill="#efe6d8" stroke="#8b2017" stroke-width="1.3" />
+      <rect x="10" y="20" width="200" height="34" rx="6" fill="#c0392b" />
+      <text x="110" y="41" font-family="Departure Mono, monospace" font-size="10" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.2em">MARCH</text>
+      {[0, 1, 2, 3, 4].map((r) =>
+        [0, 1, 2, 3, 4, 5, 6].map((c) => (
+          <rect x={24 + c * 26} y={66 + r * 20} width="18" height="14" rx="2" fill={r === 2 && c === 3 ? "#d4a843" : "#d8ccb8"} opacity={r === 2 && c === 3 ? 1 : 0.65} />
+        ))
+      )}
+      <text x="109" y="120" font-family="Departure Mono, monospace" font-size="14" fill="#1a1613" text-anchor="middle" font-weight="bold">24/7</text>
+      <text x="109" y="136" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" text-anchor="middle" letter-spacing="0.14em">REPERTORY SCHEDULE</text>
+    </svg>
+  );
+}
+
+export function CinemaSeat() {
+  return (
+    <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="34" y="26" width="92" height="86" rx="18" fill="#c0392b" stroke="#8b2017" stroke-width="1.3" />
+      <rect x="24" y="98" width="112" height="48" rx="16" fill="#d45a3b" stroke="#8b2017" stroke-width="1.3" />
+      <rect x="18" y="94" width="20" height="56" rx="8" fill="#2c2420" />
+      <rect x="122" y="94" width="20" height="56" rx="8" fill="#2c2420" />
+      <line x1="42" y1="146" x2="34" y2="192" stroke="#2c2420" stroke-width="6" stroke-linecap="round" />
+      <line x1="118" y1="146" x2="126" y2="192" stroke="#2c2420" stroke-width="6" stroke-linecap="round" />
+      <text x="80" y="62" font-family="Departure Mono, monospace" font-size="8" fill="#f5f0e8" text-anchor="middle" letter-spacing="0.14em">ROW C</text>
+      <text x="80" y="78" font-family="Departure Mono, monospace" font-size="18" fill="#f5f0e8" text-anchor="middle" font-weight="bold">7</text>
+    </svg>
+  );
+}
+
+export function AdmissionStamp() {
+  return (
+    <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <circle cx="75" cy="75" r="64" fill="#efe6d8" stroke="#8b2017" stroke-width="2" />
+      <circle cx="75" cy="75" r="52" fill="none" stroke="#d4a843" stroke-width="1.2" stroke-dasharray="3 4" />
+      <text x="75" y="52" font-family="Departure Mono, monospace" font-size="8" fill="#8b2017" text-anchor="middle" letter-spacing="0.18em">APPROVED</text>
+      <text x="75" y="83" font-family="Departure Mono, monospace" font-size="22" fill="#1a1613" text-anchor="middle" font-weight="bold">CN</text>
+      <text x="75" y="102" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" text-anchor="middle" letter-spacing="0.14em">ADMISSION DESK</text>
+    </svg>
+  );
+}
+
+export function VelvetCurtain() {
+  return (
+    <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="10" y="12" width="220" height="24" rx="4" fill="#d4a843" />
+      <path d="M18 36C56 56 74 88 78 228H18V36Z" fill="#8b2017" />
+      <path d="M222 36C184 56 166 88 162 228H222V36Z" fill="#8b2017" />
+      <path d="M60 36C92 56 104 98 106 228H78C74 88 56 56 18 36H60Z" fill="#c0392b" opacity="0.82" />
+      <path d="M180 36C148 56 136 98 134 228H162C166 88 184 56 222 36H180Z" fill="#c0392b" opacity="0.82" />
+      <circle cx="86" cy="132" r="6" fill="#d4a843" />
+      <circle cx="154" cy="132" r="6" fill="#d4a843" />
+      <path d="M86 138V182" stroke="#d4a843" stroke-width="2" />
+      <path d="M154 138V182" stroke="#d4a843" stroke-width="2" />
+      <text x="120" y="222" font-family="Departure Mono, monospace" font-size="7" fill="#6b5e52" text-anchor="middle" letter-spacing="0.14em">CURTAIN CALL</text>
+    </svg>
+  );
+}
+
+export function FilmCanister() {
+  return (
+    <svg viewBox="0 0 180 190" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <ellipse cx="90" cy="36" rx="54" ry="16" fill="#2c2420" />
+      <rect x="36" y="36" width="108" height="104" fill="#d8ccb8" stroke="#8b2017" stroke-width="1.2" />
+      <ellipse cx="90" cy="140" rx="54" ry="16" fill="#c0392b" />
+      <ellipse cx="90" cy="36" rx="42" ry="11" fill="#1a1613" />
+      <circle cx="90" cy="36" r="6" fill="#d4a843" />
+      <text x="90" y="82" font-family="Departure Mono, monospace" font-size="14" fill="#1a1613" text-anchor="middle" font-weight="bold">35MM</text>
+      <text x="90" y="102" font-family="Departure Mono, monospace" font-size="8" fill="#6b5e52" text-anchor="middle">ARCHIVE PRINT</text>
+      <text x="90" y="124" font-family="Departure Mono, monospace" font-size="7" fill="#8b2017" text-anchor="middle" letter-spacing="0.12em">HANDLE GENTLY</text>
+    </svg>
+  );
+}
+
+export function BoxOfficeLedger() {
+  return (
+    <svg viewBox="0 0 230 190" fill="none" xmlns="http://www.w3.org/2000/svg" class="artifact-svg">
+      <rect x="8" y="8" width="214" height="174" rx="4" fill="#efe6d8" stroke="#8b2017" stroke-width="1.2" />
+      <rect x="8" y="8" width="214" height="24" rx="4" fill="#1a1613" />
+      <text x="116" y="23" font-family="Departure Mono, monospace" font-size="8" fill="#d4a843" text-anchor="middle" letter-spacing="0.16em">BOX OFFICE LEDGER</text>
+      <line x1="32" y1="50" x2="32" y2="166" stroke="#9c8e7e" stroke-width="0.8" />
+      <line x1="122" y1="50" x2="122" y2="166" stroke="#9c8e7e" stroke-width="0.8" />
+      <line x1="178" y1="50" x2="178" y2="166" stroke="#9c8e7e" stroke-width="0.8" />
+      {[50, 72, 94, 116, 138, 160].map((y) => (
+        <line x1="18" y1={y} x2="212" y2={y} stroke="#9c8e7e" stroke-width="0.6" />
+      ))}
+      <text x="22" y="66" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">Passes</text>
+      <text x="132" y="66" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">Sold</text>
+      <text x="186" y="66" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">House</text>
+      <text x="22" y="110" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">Matinee</text>
+      <text x="132" y="110" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">47</text>
+      <text x="186" y="110" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">A</text>
+      <text x="22" y="132" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">Midnight</text>
+      <text x="132" y="132" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">24/7</text>
+      <text x="186" y="132" font-family="Departure Mono, monospace" font-size="7" fill="#1a1613">C</text>
+    </svg>
+  );
+}
