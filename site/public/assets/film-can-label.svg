@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" fill="none">
+  <circle cx="180" cy="180" r="152" fill="#E7DCC8" stroke="#1B1612" stroke-width="5"/>
+  <circle cx="180" cy="180" r="104" stroke="#1B1612" stroke-width="4"/>
+  <circle cx="180" cy="180" r="26" fill="#1B1612"/>
+  <path d="M180 72V288M72 180H288M108 108L252 252M252 108L108 252" stroke="#1B1612" stroke-width="3" stroke-dasharray="10 8"/>
+  <rect x="74" y="274" width="212" height="34" fill="#B85C2E"/>
+  <text x="92" y="298" fill="#E7DCC8" font-family="monospace" font-size="18">MY LIST / CACHED</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="260" viewBox="0 0 420 260" fill="none">
+  <rect x="20" y="20" width="380" height="220" fill="#1B1612" stroke="#E7DCC8" stroke-width="4"/>
+  <path d="M20 75H400M20 130H400M20 185H400" stroke="#4A3B30" stroke-width="2"/>
+  <path d="M96 20V240M172 20V240M248 20V240M324 20V240" stroke="#4A3B30" stroke-width="2"/>
+  <circle cx="124" cy="96" r="10" fill="#D48A2C"/>
+  <circle cx="214" cy="116" r="10" fill="#A18B43"/>
+  <circle cx="266" cy="154" r="10" fill="#B85C2E"/>
+  <circle cx="322" cy="102" r="10" fill="#B8BE92"/>
+  <text x="36" y="52" fill="#E7DCC8" font-family="monospace" font-size="18">CINEMA WORLD / COUNTRY GROUPS</text>
+  <text x="36" y="222" fill="#D2C6B2" font-family="monospace" font-size="16">DIRECTORS · DECADES · SPAN</text>
+</svg>

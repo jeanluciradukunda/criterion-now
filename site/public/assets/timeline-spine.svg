@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="440" viewBox="0 0 220 440" fill="none">
+  <line x1="110" y1="28" x2="110" y2="412" stroke="#B85C2E" stroke-width="6"/>
+  <circle cx="110" cy="80" r="22" fill="#1B1612" stroke="#B85C2E" stroke-width="5"/>
+  <circle cx="110" cy="190" r="16" fill="#1B1612" stroke="#D2C6B2" stroke-width="4"/>
+  <circle cx="110" cy="286" r="16" fill="#1B1612" stroke="#D2C6B2" stroke-width="4"/>
+  <circle cx="110" cy="370" r="16" fill="#1B1612" stroke="#D2C6B2" stroke-width="4"/>
+  <text x="20" y="86" fill="#B85C2E" font-family="monospace" font-size="18">NOW</text>
+  <text x="132" y="196" fill="#D2C6B2" font-family="monospace" font-size="16">YESTERDAY</text>
+  <text x="132" y="292" fill="#D2C6B2" font-family="monospace" font-size="16">MAR 14</text>
+  <text x="132" y="376" fill="#D2C6B2" font-family="monospace" font-size="16">MAR 09</text>
+</svg>

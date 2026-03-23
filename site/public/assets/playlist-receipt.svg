@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="460" viewBox="0 0 380 460" fill="none">
+  <path d="M24 24H356V398L334 418L312 398L290 418L268 398L246 418L224 398L202 418L180 398L158 418L136 398L114 418L92 398L70 418L48 398L24 418V24Z" fill="#E7DCC8" stroke="#1B1612" stroke-width="4"/>
+  <text x="42" y="62" fill="#1B1612" font-family="monospace" font-size="22">PLAYLIST RECEIPT</text>
+  <text x="42" y="102" fill="#1B1612" font-family="monospace" font-size="16">SOURCE        SCORE</text>
+  <text x="42" y="136" fill="#1B1612" font-family="monospace" font-size="16">WIKIDATA      0.62</text>
+  <text x="42" y="168" fill="#1B1612" font-family="monospace" font-size="16">MUSICBRAINZ   0.84</text>
+  <text x="42" y="200" fill="#1B1612" font-family="monospace" font-size="16">DISCOGS       0.76</text>
+  <text x="42" y="232" fill="#1B1612" font-family="monospace" font-size="16">ITUNES        0.57</text>
+  <text x="42" y="264" fill="#1B1612" font-family="monospace" font-size="16">LAST.FM       0.79</text>
+  <rect x="42" y="304" width="296" height="74" fill="#D48A2C"/>
+  <text x="58" y="344" fill="#1B1612" font-family="monospace" font-size="18">BEST MATCH / VERIFIED</text>
+  <text x="58" y="368" fill="#1B1612" font-family="monospace" font-size="15">parallel search + weighted answer</text>
+</svg>
