@@ -463,8 +463,8 @@ function FAQItem(props: { question: string; answer: string }) {
   const [open, setOpen] = createSignal(false);
 
   return (
-    <div class={`faq-item reveal ${open() ? "open" : ""}`}>
-      <button class="faq-question" onClick={() => setOpen((o) => !o)}>
+    <div class="faq-item reveal" classList={{ open: open() }}>
+      <button type="button" class="faq-question" onClick={() => setOpen((o) => !o)}>
         {props.question}
         <span class="faq-chevron">▸</span>
       </button>
