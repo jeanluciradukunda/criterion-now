@@ -79,7 +79,7 @@ export function App() {
           <div class="hero-content">
             <div class="hero-text">
               <div class="brand-line">
-                <img src="/assets/criterion-c.svg" alt="" class="brand-logo" />
+                <img src={`${import.meta.env.BASE_URL}assets/criterion-c.svg`} alt="" class="brand-logo" />
                 <p class="kicker">macOS Menu Bar Companion for the Criterion Channel</p>
               </div>
               <div class="hero-headline">
@@ -352,9 +352,9 @@ export function App() {
             <ul class="footer-facts">
               <For each={footerFacts}>{(fact) => <li>{fact}</li>}</For>
             </ul>
-            <div class="footer-links" id="source">
-              <a href="#gallery">DOWNLOAD</a>
-              <a href="#source">SOURCE</a>
+            <div class="footer-links">
+              <a href="https://github.com/jeanluciradukunda/criterion-now/releases/latest">DOWNLOAD</a>
+              <a href="https://github.com/jeanluciradukunda/criterion-now">SOURCE</a>
             </div>
             <p class="commentary">
               Swift, SwiftUI, AppKit, SceneKit. Five music APIs scored in parallel.
