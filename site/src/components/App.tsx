@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
   { q: "How does soundtrack matching work?", a: "When a film is detected, five music sources are queried in parallel — Wikidata, MusicBrainz, Discogs, iTunes, and Last.fm. Each result is scored across six dimensions (title match, artist match, release year, track count, source trust, keyword relevance) with configurable weights. Only results above the confidence threshold are shown." },
   { q: "Will it flag my Criterion account for multiple devices?", a: "No. The app shares a single browser session with the stream, so Criterion sees one device. It's the same as having one Safari tab open." },
   { q: "What macOS version do I need?", a: "macOS 14 (Sonoma) or later. The app uses SwiftUI features and APIs introduced in macOS 14. It runs natively on both Apple Silicon and Intel Macs." },
-  { q: "Why is the app unsigned?", a: "This is a personal, non-commercial project and is not distributed through the Mac App Store. macOS will show a security prompt the first time you open it — see the installation guide above for how to allow it." },
+  { q: "Is the app signed?", a: "Yes. Criterion Now is signed with an Apple Developer ID certificate and notarized by Apple. Download, install, and it just works — no security warnings or Terminal commands." },
 ];
 
 export function App() {
@@ -308,9 +308,8 @@ export function App() {
             </div>
             <div class="install-step reveal reveal-delay-3">
               <span class="install-step-num">ACT III</span>
-              <h4>Open with Permission</h4>
-              <p>Since the app is unsigned, macOS will block it on first launch. Right-click the app and choose "Open", then click "Open" in the dialog.</p>
-              <code>Right-click → Open → Open</code>
+              <h4>Launch</h4>
+              <p>Open Criterion Now from Applications. It appears in your menu bar. Signed and notarized — no security prompts.</p>
             </div>
             <div class="install-step reveal reveal-delay-4">
               <span class="install-step-num">ACT IV</span>
