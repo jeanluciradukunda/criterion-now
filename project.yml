@@ -10,6 +10,8 @@ settings:
   base:
     SWIFT_VERSION: "5.9"
     MACOSX_DEPLOYMENT_TARGET: "14.0"
+    DEVELOPMENT_TEAM: YNB3ADRMFC
+    CODE_SIGN_STYLE: Automatic
 
 targets:
   CriterionNow:
@@ -32,8 +34,6 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_ENTITLEMENTS: CriterionNow/Resources/CriterionNow.entitlements
         COMBINE_HIDPI_IMAGES: YES
-        DEVELOPMENT_TEAM: YNB3ADRMFC
-        CODE_SIGN_STYLE: Automatic
         LD_RUNPATH_SEARCH_PATHS:
           - "$(inherited)"
           - "@executable_path/../Frameworks"
