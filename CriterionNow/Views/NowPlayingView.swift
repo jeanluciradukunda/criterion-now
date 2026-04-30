@@ -340,7 +340,7 @@ struct NowPlayingView: View {
         Group {
             if player.mode != .off && player.dock == .docked {
                 dockedPlayerView
-                    .padding(.horizontal, player.mode == .video ? 0 : 16)
+                    .padding(.horizontal, 12)
             } else {
                 posterView
                     .padding(.horizontal, 20)
@@ -678,6 +678,7 @@ struct NowPlayingView: View {
                     }
                 }
                 .aspectRatio(16/9, contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
         }
     }

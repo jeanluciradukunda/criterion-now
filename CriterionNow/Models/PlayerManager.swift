@@ -232,30 +232,25 @@ class PlayerManager: ObservableObject {
     }
 
     func setWebViewVolume(_ vol: Double) {
-        // Update volume in main frame AND all iframes
+        // WKWebView has NO granular volume API for cross-origin iframe content.
+        // _setPageMuted is the only reliable control — mute at 0, unmute above 0.
+        let shouldMute = vol == 0
+        webView.perform(NSSelectorFromString("_setPageMuted:"), with: NSNumber(value: shouldMute))
+
+        // Also try JS for same-origin content (may work for some video players)
         let js = """
         window.__criterionVolume = \(vol);
-        document.querySelectorAll('video, audio').forEach(function(el) { el.volume = \(vol); });
-
-        // Also try to reach into iframes (same-origin only, but worth trying)
-        document.querySelectorAll('iframe').forEach(function(f) {
-            try {
-                f.contentWindow.postMessage({type: 'setVolume', volume: \(vol)}, '*');
-                if (f.contentDocument) {
-                    f.contentDocument.querySelectorAll('video, audio').forEach(function(el) { el.volume = \(vol); });
-                    f.contentWindow.__criterionVolume = \(vol);
-                }
-            } catch(e) {}
-        });
+        document.querySelectorAll('video, audio').forEach(el => el.volume = \(vol));
+        if (window.__criterionGainNode) window.__criterionGainNode.gain.value = \(vol);
         """
         webView.evaluateJavaScript(js)
-
-        // Also evaluate in all frames via the user script approach
-        let frameJS = "window.__criterionVolume = \(vol); document.querySelectorAll('video, audio').forEach(function(el) { el.volume = \(vol); });"
-        webView.evaluateJavaScript(frameJS, in: nil, in: .defaultClient)
+        webView.callAsyncJavaScript(
+            "document.querySelectorAll('video,audio').forEach(el=>el.volume=v)",
+            arguments: ["v": vol], in: nil, in: .defaultClient
+        ) { _ in }
     }
 
-    /// Re-inject audio analyser after navigations (the user script may not survive SPA transitions)
+    /// Re-inject audio analyser + gain node for volume control
     func injectAudioAnalyser() {
         let js = """
         (function() {
@@ -264,6 +259,7 @@ class PlayerManager: ObservableObject {
 
             var audioCtx = null;
             var analyser = null;
+            var gainNode = null;
             var dataArray = null;
             var connectedElements = new WeakSet();
 
@@ -275,12 +271,18 @@ class PlayerManager: ObservableObject {
                         analyser = audioCtx.createAnalyser();
                         analyser.fftSize = 128;
                         analyser.smoothingTimeConstant = 0.8;
+                        // GainNode for volume control — works even for cross-origin iframe audio
+                        gainNode = audioCtx.createGain();
+                        gainNode.gain.value = window.__criterionVolume || 0.8;
+                        gainNode.connect(analyser);
                         analyser.connect(audioCtx.destination);
                         dataArray = new Uint8Array(analyser.frequencyBinCount);
                     }
                     var source = audioCtx.createMediaElementSource(mediaEl);
-                    source.connect(analyser);
+                    source.connect(gainNode);
                     connectedElements.add(mediaEl);
+                    // Expose gainNode globally so setWebViewVolume can control it
+                    window.__criterionGainNode = gainNode;
                 } catch(e) {}
             }
 

@@ -96,10 +96,14 @@ struct ControlButton: View {
 
 // MARK: - Custom Volume Slider
 
+/// Visual volume slider that toggles mute/unmute on tap.
+/// WKWebView has no granular volume API for cross-origin iframe content,
+/// so we use _setPageMuted for mute/unmute — the slider is a visual toggle.
 struct CustomSlider: View {
     @Binding var value: Double
 
     @State private var isHovering = false
+    @State private var previousVolume: Double = 0.8
 
     var body: some View {
         GeometryReader { geo in
@@ -108,16 +112,17 @@ struct CustomSlider: View {
                 RoundedRectangle(cornerRadius: 2)
                     .fill(Color.white.opacity(0.12))
 
-                // Filled track
+                // Filled track — animated between 0 and full
                 RoundedRectangle(cornerRadius: 2)
                     .fill(
                         LinearGradient(
-                            colors: [.orange.opacity(0.7), .red.opacity(0.8)],
+                            colors: [AppAccent.current.opacity(0.7), AppAccent.current.opacity(0.9)],
                             startPoint: .leading,
                             endPoint: .trailing
                         )
                     )
                     .frame(width: geo.size.width * value)
+                    .animation(.easeInOut(duration: 0.2), value: value)
 
                 // Thumb
                 Circle()
@@ -125,16 +130,21 @@ struct CustomSlider: View {
                     .shadow(color: .black.opacity(0.3), radius: 2, y: 1)
                     .frame(width: isHovering ? 10 : 6, height: isHovering ? 10 : 6)
                     .offset(x: (geo.size.width * value) - (isHovering ? 5 : 3))
+                    .animation(.easeInOut(duration: 0.2), value: value)
                     .animation(.easeInOut(duration: 0.1), value: isHovering)
             }
             .contentShape(Rectangle())
-            .gesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged { drag in
-                        let newValue = min(max(drag.location.x / geo.size.width, 0), 1)
-                        value = newValue
+            .onTapGesture {
+                // Toggle mute/unmute with smooth animation
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    if value > 0 {
+                        previousVolume = value
+                        value = 0
+                    } else {
+                        value = previousVolume > 0 ? previousVolume : 0.8
                     }
-            )
+                }
+            }
             .onHover { hovering in
                 isHovering = hovering
             }
