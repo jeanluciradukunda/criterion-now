@@ -100,10 +100,12 @@ struct ControlButton: View {
 /// WKWebView has no granular volume API for cross-origin iframe content,
 /// so we use _setPageMuted for mute/unmute — the slider is a visual toggle.
 struct CustomSlider: View {
+    private static let defaultVolume: Double = 0.8
+
     @Binding var value: Double
 
     @State private var isHovering = false
-    @State private var previousVolume: Double = 0.8
+    @State private var previousVolume: Double = Self.defaultVolume
 
     var body: some View {
         GeometryReader { geo in
@@ -141,7 +143,7 @@ struct CustomSlider: View {
                         previousVolume = value
                         value = 0
                     } else {
-                        value = previousVolume > 0 ? previousVolume : 0.8
+                        value = previousVolume > 0 ? previousVolume : Self.defaultVolume
                     }
                 }
             }
