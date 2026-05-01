@@ -19,9 +19,6 @@ targets:
     platform: macOS
     sources:
       - path: CriterionNow
-        excludes:
-          - "Resources/Secrets.plist"
-          - "Resources/Secrets.example.plist"
       - path: CriterionNowWidget/SharedData.swift
     dependencies:
       - target: CriterionNowWidget
