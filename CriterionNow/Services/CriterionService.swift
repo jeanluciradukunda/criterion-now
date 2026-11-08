@@ -1,75 +1,90 @@
 import Foundation
 
 actor CriterionService {
-    private let whatsOnURL = URL(string: "https://whatsonnow.criterionchannel.com/")!
-
     func fetchNowPlaying() async throws -> CriterionNowPlaying {
-        let (data, response) = try await URLSession.shared.data(from: whatsOnURL)
+        let (data, response) = try await URLSession.shared.data(from: Movie.liveURL)
         if CriterionGeoBlock.isGeoBlocked(response.url) {
             throw CriterionError.geoBlocked
         }
         guard let html = String(data: data, encoding: .utf8) else {
             throw CriterionError.invalidResponse
         }
-        return try parse(html: html)
+        return try Self.nowPlaying(fromLivePage: html, at: Date())
     }
 
-    private func parse(html: String) throws -> CriterionNowPlaying {
-        // Extract title from <h2 class="whatson__title">...</h2>
-        guard let title = extractBetween(html, start: "whatson__title\">", end: "</h2>") else {
+    struct ScheduleEntry: Decodable {
+        let startTime: Date
+        let endTime: Date
+        let episodeTitle: String
+        let guid: String
+    }
+
+    /// The live page embeds the week's 24/7 schedule in its Next.js flight payload.
+    static func nowPlaying(fromLivePage html: String, at date: Date) throws -> CriterionNowPlaying {
+        guard let schedule = schedule(fromLivePage: html),
+              let current = schedule.first(where: { $0.startTime <= date && date < $0.endTime }) else {
             throw CriterionError.parsingFailed
         }
-
-        // Extract slug from the "More" link href
-        let slug: String
-        if let moreLink = extractBetween(html, start: "whatson__channel-link--more\" href=\"https://www.criterionchannel.com/", end: "\"") {
-            slug = moreLink
-        } else if let moreLink = extractBetween(html, start: "channel-link--more\">\n", end: "\n") {
-            slug = moreLink.trimmingCharacters(in: .whitespaces)
-        } else {
-            slug = title.lowercased()
-                .replacingOccurrences(of: " ", with: "-")
-                .replacingOccurrences(of: "'", with: "")
-        }
-
-        // Extract "Next film starts in: X minutes"
-        // Note: Criterion's HTML has a typo — </snap> instead of </span>
-        let nextFilmIn: String
-        if let timeText = extractBetween(html, start: "Next film starts in:", end: "</p>"),
-           !timeText.contains("now") {
-            // Strip tags and whitespace: e.g. ' <span class="...">25 minutes</snap>' → '25 minutes'
-            let cleaned = timeText
-                .replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
-                .trimmingCharacters(in: .whitespacesAndNewlines)
-            nextFilmIn = cleaned
-        } else {
-            nextFilmIn = ""
-        }
-
+        let minutesLeft = Int((current.endTime.timeIntervalSince(date) / 60).rounded(.up))
         return CriterionNowPlaying(
-            title: decodeHTML(title.trimmingCharacters(in: .whitespacesAndNewlines)),
-            slug: slug,
-            nextFilmIn: nextFilmIn
+            title: current.episodeTitle,
+            slug: filmSlug(guid: current.guid, in: html) ?? fallbackSlug(for: current.episodeTitle),
+            nextFilmIn: "\(minutesLeft) minutes"
         )
     }
 
-    private func decodeHTML(_ string: String) -> String {
-        string
-            .replacingOccurrences(of: "&amp;", with: "&")
-            .replacingOccurrences(of: "&lt;", with: "<")
-            .replacingOccurrences(of: "&gt;", with: ">")
-            .replacingOccurrences(of: "&quot;", with: "\"")
-            .replacingOccurrences(of: "&#39;", with: "'")
-            .replacingOccurrences(of: "&apos;", with: "'")
-            .replacingOccurrences(of: "&#x27;", with: "'")
-            .replacingOccurrences(of: "&#038;", with: "&")
+    static func schedule(fromLivePage html: String) -> [ScheduleEntry]? {
+        let payload = flightPayload(from: html)
+        guard let start = payload.range(of: "\"schedule\":[")?.upperBound,
+              let array = balancedArray(in: payload, openingAt: payload.index(before: start)) else { return nil }
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        return try? decoder.decode([ScheduleEntry].self, from: Data(array.utf8))
     }
 
-    private func extractBetween(_ string: String, start: String, end: String) -> String? {
-        guard let startRange = string.range(of: start) else { return nil }
-        let afterStart = string[startRange.upperBound...]
-        guard let endRange = afterStart.range(of: end) else { return nil }
-        return String(afterStart[..<endRange.lowerBound])
+    private static func flightPayload(from html: String) -> String {
+        let pattern = #"self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)"#
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: [.dotMatchesLineSeparators]) else { return "" }
+        let range = NSRange(html.startIndex..., in: html)
+        return regex.matches(in: html, range: range).compactMap { match -> String? in
+            guard let literal = Range(match.range(at: 1), in: html) else { return nil }
+            return try? JSONDecoder().decode(String.self, from: Data(html[literal].utf8))
+        }.joined()
+    }
+
+    /// Brackets inside JSON strings (film descriptions) must not end the array early.
+    private static func balancedArray(in text: String, openingAt open: String.Index) -> String? {
+        var depth = 0
+        var inString = false
+        var escaped = false
+        var index = open
+        while index < text.endIndex {
+            let char = text[index]
+            if inString {
+                if escaped { escaped = false } else if char == "\\" { escaped = true } else if char == "\"" { inString = false }
+            } else if char == "\"" {
+                inString = true
+            } else if char == "[" {
+                depth += 1
+            } else if char == "]" {
+                depth -= 1
+                if depth == 0 { return String(text[open...index]) }
+            }
+            index = text.index(after: index)
+        }
+        return nil
+    }
+
+    private static func filmSlug(guid: String, in html: String) -> String? {
+        guard let start = html.range(of: "href=\"/films/\(guid)/")?.upperBound,
+              let end = html[start...].firstIndex(of: "\"") else { return nil }
+        return String(html[start..<end])
+    }
+
+    private static func fallbackSlug(for title: String) -> String {
+        title.lowercased()
+            .replacingOccurrences(of: " ", with: "-")
+            .replacingOccurrences(of: "'", with: "")
     }
 }
 

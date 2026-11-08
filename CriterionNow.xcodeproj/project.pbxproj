@@ -40,10 +40,12 @@
 		83482BB070828B2DE7AF822A /* CriterionNowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E738587CD71113FB854E247 /* CriterionNowApp.swift */; };
 		842613E94B23F2915B1E11B4 /* CriterionLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A396602B8C1243FF0BA4479 /* CriterionLibraryService.swift */; };
 		8AFED86CA2C2FF8F7C976B9E /* LibraryMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B350C754BCC0D1D974CB2 /* LibraryMovie.swift */; };
+		8B1F4051063B85FC144266B8 /* CriterionNowPlayingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86326163D6E9B36C1E718BB0 /* CriterionNowPlayingTests.swift */; };
 		8E6E313B4821085AED88D422 /* PinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23895E7BD6039870EDC8346 /* PinButton.swift */; };
 		90B3660723189AB8D570263E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52492C9942F142B72414E86 /* SettingsView.swift */; };
 		9805516E0F089A151E64C462 /* Secrets.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF1A2179534058DD8DE06007 /* Secrets.example.plist */; };
 		99014E9D907DD0FC848A381E /* AudioVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4B461FB9B83272862D5A85 /* AudioVisualizerView.swift */; };
+		9F1D6C5F1307791D81D1C4D4 /* live.html in Resources */ = {isa = PBXBuildFile; fileRef = BCF1AE6550FAC33CB5F42ACD /* live.html */; };
 		A2FE2DBD13B97856049FD3CC /* StreamWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C289EC2538DEEB354DAA7F /* StreamWebView.swift */; };
 		B274FAA4F0166EC1804183CC /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A9BFAEE5A6E1B3047BAAC /* PlayerControlsView.swift */; };
 		B638050FDD59E41CCC8DA36D /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802C3A3BBB48C7FF5B77354 /* PlayerManager.swift */; };
@@ -126,6 +128,7 @@
 		72F1BF88AA35AC68CCAA2686 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		7D8BCFBE00C968CA9D1E44F1 /* CriterionGeoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionGeoBlock.swift; sourceTree = "<group>"; };
 		7E9B7FCDF63FBC2CCCE05572 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		86326163D6E9B36C1E718BB0 /* CriterionNowPlayingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionNowPlayingTests.swift; sourceTree = "<group>"; };
 		8643329517208D0195E0CA4A /* GlobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobeView.swift; sourceTree = "<group>"; };
 		865F4D4D5D35F76394146659 /* LibraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailView.swift; sourceTree = "<group>"; };
 		8A396602B8C1243FF0BA4479 /* CriterionLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionLibraryService.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		A928B28E8A885B4BEAD0F85E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		AAF93C51AB8DA23160A28325 /* MetricsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsService.swift; sourceTree = "<group>"; };
 		AD4B461FB9B83272862D5A85 /* AudioVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizerView.swift; sourceTree = "<group>"; };
+		BCF1AE6550FAC33CB5F42ACD /* live.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = live.html; sourceTree = "<group>"; };
 		BF1A2179534058DD8DE06007 /* Secrets.example.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.example.plist; sourceTree = "<group>"; };
 		C03E6611E6369C3AD71FED25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C52492C9942F142B72414E86 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -189,6 +193,14 @@
 				83D5C3E7429E1A04A784B0FC /* Resources */,
 			);
 			path = CriterionNowWidget;
+			sourceTree = "<group>";
+		};
+		4F6C66A6D6690A8F3CDC1696 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				BCF1AE6550FAC33CB5F42ACD /* live.html */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		83D5C3E7429E1A04A784B0FC /* Resources */ = {
@@ -277,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */,
+				86326163D6E9B36C1E718BB0 /* CriterionNowPlayingTests.swift */,
+				4F6C66A6D6690A8F3CDC1696 /* Fixtures */,
 			);
 			path = CriterionNowTests;
 			sourceTree = "<group>";
@@ -335,6 +349,7 @@
 			buildConfigurationList = 39AE191BAD9930F51E37D337 /* Build configuration list for PBXNativeTarget "CriterionNowTests" */;
 			buildPhases = (
 				8766CC609F9BD224004EE231 /* Sources */,
+				AD5754087E6BA1E60A3AC72C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -433,6 +448,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD5754087E6BA1E60A3AC72C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F1D6C5F1307791D81D1C4D4 /* live.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -493,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6361F4B4AFCBC8583060CD3F /* CriterionGeoBlockTests.swift in Sources */,
+				8B1F4051063B85FC144266B8 /* CriterionNowPlayingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
