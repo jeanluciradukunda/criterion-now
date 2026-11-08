@@ -33,6 +33,17 @@ final class CriterionNowPlayingTests: XCTestCase {
         XCTAssertEqual(nowPlaying.slug, "victims-of-sin")
     }
 
+    func testReadsScheduleFromALargePush() throws {
+        let entry = #"{"startTime":"2026-11-08T22:02:58Z","endTime":"2026-11-08T23:28:02Z","episodeTitle":"Victims of Sin","guid":"cOGhYMOa"}"#
+        let payload = #"45:{"description":""# + String(repeating: "a \\\"quoted\\\" line. ", count: 20_000)
+            + #"","schedule":["# + entry + "]}"
+        let literal = try XCTUnwrap(String(data: JSONEncoder().encode(payload), encoding: .utf8))
+        let page = "<script>self.__next_f.push([1,\(literal)])</script>"
+        XCTAssertGreaterThan(page.utf8.count, 250_000)
+        let nowPlaying = try CriterionService.nowPlaying(fromLivePage: page, at: date("2026-11-08T22:30:00Z"))
+        XCTAssertEqual(nowPlaying.title, "Victims of Sin")
+    }
+
     func testOutsideTheScheduleIsAParsingFailure() throws {
         XCTAssertThrowsError(try CriterionService.nowPlaying(fromLivePage: html, at: date("2026-12-01T00:00:00Z")))
         XCTAssertThrowsError(try CriterionService.nowPlaying(fromLivePage: "<html></html>", at: Date()))

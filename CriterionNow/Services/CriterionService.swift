@@ -43,7 +43,9 @@ actor CriterionService {
     }
 
     private static func flightPayload(from html: String) -> String {
-        let pattern = #"self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)"#
+        // Possessive quantifiers: the plain form overflows ICU's backtracking stack on the real
+        // page's 260 KB literal and silently matches nothing.
+        let pattern = #"self\.__next_f\.push\(\[1,("(?:[^"\\]++|\\.)*+")\]\)"#
         guard let regex = try? NSRegularExpression(pattern: pattern, options: [.dotMatchesLineSeparators]) else { return "" }
         let range = NSRange(html.startIndex..., in: html)
         return regex.matches(in: html, range: range).compactMap { match -> String? in
