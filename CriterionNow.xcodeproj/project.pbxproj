@@ -22,6 +22,7 @@
 		4D702F798ABEB1C35FB4C0DD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6F79BB1B1C0A9D4928C0D /* Movie.swift */; };
 		4E6819E445E1302B4378E79E /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F1BF88AA35AC68CCAA2686 /* KeychainService.swift */; };
 		4F017163F1E11C5C2FCE2D0F /* AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A843F03C8C76800D42CDDB4 /* AccentColor.swift */; };
+		5C49B41B5AF95CFF35546019 /* CriterionLibraryExtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F90A6E0FAD155B26CA1C65 /* CriterionLibraryExtractionTests.swift */; };
 		5DBD88A7BE703EF0EEE665C7 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D0303CF862AFD46129A2F7 /* HistoryService.swift */; };
 		6142786330078F6411E9F355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03E6611E6369C3AD71FED25 /* Assets.xcassets */; };
 		6361F4B4AFCBC8583060CD3F /* CriterionGeoBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */; };
@@ -47,6 +48,7 @@
 		A2FE2DBD13B97856049FD3CC /* StreamWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C289EC2538DEEB354DAA7F /* StreamWebView.swift */; };
 		B274FAA4F0166EC1804183CC /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139A9BFAEE5A6E1B3047BAAC /* PlayerControlsView.swift */; };
 		B638050FDD59E41CCC8DA36D /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5802C3A3BBB48C7FF5B77354 /* PlayerManager.swift */; };
+		B63914FC9F9649D70394B89A /* my-list.html in Resources */ = {isa = PBXBuildFile; fileRef = EE602E07E99681ECC3F17175 /* my-list.html */; };
 		B74A6B9B7C22449E0F1B2E9D /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FB535E95478A04B862EA4 /* HistoryViewModel.swift */; };
 		BA75EC726D5D001E64A4B6AC /* LastFMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0839A231B44308FD186BA1 /* LastFMService.swift */; };
 		BF8579CDD50F461834DA7A9C /* RadarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E9BBFB9BA327FEF80F27D /* RadarChartView.swift */; };
@@ -106,6 +108,7 @@
 		13324A9D65B135F1FB829196 /* CriterionNowWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CriterionNowWidget.entitlements; sourceTree = "<group>"; };
 		139A9BFAEE5A6E1B3047BAAC /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		1643C4D53F1527117211C4A0 /* SoundtrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackView.swift; sourceTree = "<group>"; };
+		17F90A6E0FAD155B26CA1C65 /* CriterionLibraryExtractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionLibraryExtractionTests.swift; sourceTree = "<group>"; };
 		1C952D15C286C9A6FDEA10B8 /* SettingsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindow.swift; sourceTree = "<group>"; };
 		2380FE160F11D406067B83A6 /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		25860FC6C9AD630FE31B21DA /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		EAB6F79BB1B1C0A9D4928C0D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		EAF80A6E7111EEE86E98EFC7 /* ScrobbleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrobbleManager.swift; sourceTree = "<group>"; };
 		EC9A6DEC22A4FFC118D5A7B6 /* CriterionNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CriterionNow.entitlements; sourceTree = "<group>"; };
+		EE602E07E99681ECC3F17175 /* my-list.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "my-list.html"; sourceTree = "<group>"; };
 		F68AA862F9A6D83942401E7D /* CriterionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionService.swift; sourceTree = "<group>"; };
 		FB0839A231B44308FD186BA1 /* LastFMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastFMService.swift; sourceTree = "<group>"; };
 		FD237E6B471E80346D4763C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -189,6 +193,14 @@
 				83D5C3E7429E1A04A784B0FC /* Resources */,
 			);
 			path = CriterionNowWidget;
+			sourceTree = "<group>";
+		};
+		4F6C66A6D6690A8F3CDC1696 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				EE602E07E99681ECC3F17175 /* my-list.html */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		83D5C3E7429E1A04A784B0FC /* Resources */ = {
@@ -277,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */,
+				17F90A6E0FAD155B26CA1C65 /* CriterionLibraryExtractionTests.swift */,
+				4F6C66A6D6690A8F3CDC1696 /* Fixtures */,
 			);
 			path = CriterionNowTests;
 			sourceTree = "<group>";
@@ -335,6 +349,7 @@
 			buildConfigurationList = 39AE191BAD9930F51E37D337 /* Build configuration list for PBXNativeTarget "CriterionNowTests" */;
 			buildPhases = (
 				8766CC609F9BD224004EE231 /* Sources */,
+				AD5754087E6BA1E60A3AC72C /* Resources */,
 			);
 			buildRules = (
 			);
@@ -433,6 +448,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AD5754087E6BA1E60A3AC72C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B63914FC9F9649D70394B89A /* my-list.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -493,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6361F4B4AFCBC8583060CD3F /* CriterionGeoBlockTests.swift in Sources */,
+				5C49B41B5AF95CFF35546019 /* CriterionLibraryExtractionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,9 +45,7 @@ class CriterionLibraryService {
             if CriterionGeoBlock.isGeoBlocked(wv.url) {
                 throw CriterionError.geoBlocked
             }
-            let count = (try? await wv.evaluateJavaScript(
-                "document.querySelectorAll('li.js-collection-item').length"
-            )) as? Int ?? 0
+            let count = (try? await wv.evaluateJavaScript(Self.countJS)) as? Int ?? 0
             if count > 0 { return }
             try await Task.sleep(nanoseconds: 400_000_000) // 0.4s poll
         }
@@ -60,14 +58,17 @@ class CriterionLibraryService {
     private func loadAllPages(_ wv: WKWebView, maxWait: TimeInterval = 60) async throws {
         let clickJS = """
         (function() {
-            var btn = document.querySelector('.js-load-more-link, [data-load-more]');
-            if (btn && btn.offsetParent !== null) { btn.click(); return true; }
-            return false;
+            window.scrollTo(0, document.body.scrollHeight);
+            var buttons = Array.prototype.slice.call(document.querySelectorAll('button, a[role="button"]'));
+            var btn = buttons.find(function(b) {
+                return /^(load|show) more$/i.test(b.textContent.trim()) && b.offsetParent !== null;
+            });
+            if (btn) { btn.click(); }
+            return true;
         })();
         """
-        let countJS = "document.querySelectorAll('li.js-collection-item').length"
 
-        var lastCount = (try? await wv.evaluateJavaScript(countJS)) as? Int ?? 0
+        var lastCount = (try? await wv.evaluateJavaScript(Self.countJS)) as? Int ?? 0
         let start = Date()
 
         while Date().timeIntervalSince(start) < maxWait {
@@ -79,7 +80,7 @@ class CriterionLibraryService {
             while waited < 5 {
                 try await Task.sleep(nanoseconds: 400_000_000)
                 waited += 0.4
-                let newCount = (try? await wv.evaluateJavaScript(countJS)) as? Int ?? 0
+                let newCount = (try? await wv.evaluateJavaScript(Self.countJS)) as? Int ?? 0
                 if newCount > lastCount {
                     lastCount = newCount
                     break
@@ -92,35 +93,34 @@ class CriterionLibraryService {
 
     // MARK: - Shared extraction JS
 
-    private let extractionJS = """
-    (function() {
-        var items = document.querySelectorAll('li.js-collection-item');
+    /// Cards on the Next.js site: a link to /<kind>/<id>/<slug> labelled by its title element.
+    /// Class names are hashed per build, so nothing here depends on them.
+    private static let cardsFunctionJS = """
+    function() {
+        var kinds = { films: 'movie', supplements: 'video', collections: 'series', series: 'series' };
         var movies = [];
-        items.forEach(function(item) {
-            var linkEl = item.querySelector('a.browse-item-link');
-            if (!linkEl) return;
-            var href = linkEl.getAttribute('href') || '';
-            var titleEl = item.querySelector('.browse-item-title strong');
-            if (!titleEl) titleEl = item.querySelector('.browse-item-title a');
-            if (!titleEl) return;
-            var title = titleEl.textContent.trim();
-            var imgEl = item.querySelector('.browse-image-container img');
-            var img = imgEl ? imgEl.getAttribute('src') : '';
-            var itemType = item.getAttribute('data-item-type') || '';
-            var slug = '';
-            try {
-                var url = new URL(href, 'https://www.criterionchannel.com');
-                var parts = url.pathname.split('/').filter(function(p) { return p.length > 0; });
-                slug = parts[parts.length - 1] || '';
-            } catch(e) { slug = href.split('/').pop() || ''; }
-            if (slug && title) {
-                movies.push({ title: title, slug: slug, href: href, image: img, type: itemType });
-            }
-        });
         var seen = {};
-        return movies.filter(function(m) { if (seen[m.slug]) return false; seen[m.slug] = true; return true; });
-    })();
+        document.querySelectorAll('a[aria-labelledby][href]').forEach(function(link) {
+            var url;
+            try { url = new URL(link.getAttribute('href'), 'https://www.criterionchannel.com'); } catch (e) { return; }
+            var parts = url.pathname.split('/').filter(function(p) { return p.length > 0; });
+            if (parts.length < 3 || !kinds[parts[0]]) return;
+            var titleEl = document.getElementById(link.getAttribute('aria-labelledby').split(' ')[0]);
+            var img = link.parentElement ? link.parentElement.querySelector('img') : null;
+            var title = titleEl ? titleEl.textContent.trim() : (img ? (img.getAttribute('alt') || '').trim() : '');
+            var slug = parts[2];
+            if (!title || seen[slug]) return;
+            seen[slug] = true;
+            var image = img ? (img.getAttribute('data-src') || img.getAttribute('src') || '') : '';
+            if (image.indexOf('data:') === 0) image = '';
+            movies.push({ title: title, slug: slug, href: url.pathname, image: image, type: kinds[parts[0]] });
+        });
+        return movies;
+    }
     """
+
+    static let extractionJS = "(\(cardsFunctionJS))();"
+    static let countJS = "(\(cardsFunctionJS))().length;"
 
     // MARK: - Fetch My List
 
@@ -133,8 +133,8 @@ class CriterionLibraryService {
         try await waitForContent(wv, timeout: 15)
         try await loadAllPages(wv, maxWait: 60)
 
-        let result = try await wv.evaluateJavaScript(extractionJS)
-        let movies = (result as? [[String: Any]]).map { parseMovies(from: $0) } ?? []
+        let result = try await wv.evaluateJavaScript(Self.extractionJS)
+        let movies = (result as? [[String: Any]]).map { Self.parseMovies(from: $0) } ?? []
         // An empty scrape must not reach the caller, which would save it over the stored library.
         if movies.isEmpty {
             throw CriterionError.emptyLibrary
@@ -144,12 +144,12 @@ class CriterionLibraryService {
 
     // MARK: - Fetch Collection Films
 
-    func fetchCollectionFilms(slug: String) async throws -> (description: String, films: [LibraryMovie]) {
+    func fetchCollectionFilms(url: URL) async throws -> (description: String, films: [LibraryMovie]) {
         let wv = getWebView()
         isScraping = true
         defer { cleanupAfterScrape() }
 
-        wv.load(URLRequest(url: URL(string: "https://www.criterionchannel.com/\(slug)")!))
+        wv.load(URLRequest(url: url))
         try await waitForContent(wv, timeout: 15)
         try await loadAllPages(wv, maxWait: 30)
 
@@ -160,15 +160,15 @@ class CriterionLibraryService {
         })();
         """
         let description = (try? await wv.evaluateJavaScript(descJS)) as? String ?? ""
-        let result = try await wv.evaluateJavaScript(extractionJS)
-        let films = (result as? [[String: Any]]).map { parseMovies(from: $0) } ?? []
+        let result = try await wv.evaluateJavaScript(Self.extractionJS)
+        let films = (result as? [[String: Any]]).map { Self.parseMovies(from: $0) } ?? []
         return (description, films)
     }
 
     // MARK: - Parse
 
     /// Decode HTML entities like &amp; → &, &#39; → ', etc.
-    private func decodeHTML(_ string: String) -> String {
+    private static func decodeHTML(_ string: String) -> String {
         string
             .replacingOccurrences(of: "&amp;", with: "&")
             .replacingOccurrences(of: "&lt;", with: "<")
@@ -180,16 +180,14 @@ class CriterionLibraryService {
             .replacingOccurrences(of: "&#038;", with: "&")
     }
 
-    private func parseMovies(from dicts: [[String: Any]]) -> [LibraryMovie] {
+    static func parseMovies(from dicts: [[String: Any]]) -> [LibraryMovie] {
         dicts.compactMap { dict -> LibraryMovie? in
             guard let rawTitle = dict["title"] as? String,
                   let slug = dict["slug"] as? String else { return nil }
             let title = decodeHTML(rawTitle)
             let href = dict["href"] as? String ?? "/\(slug)"
             let imageStr = dict["image"] as? String ?? ""
-            let imageURL = imageStr.isEmpty ? nil : URL(string: imageStr
-                .replacingOccurrences(of: "h=360", with: "h=720")
-                .replacingOccurrences(of: "w=640", with: "w=1280"))
+            let imageURL = imageStr.isEmpty ? nil : URL(string: imageStr)
             let criterionURL = href.hasPrefix("http")
                 ? URL(string: href)!
                 : URL(string: "https://www.criterionchannel.com\(href)")!
