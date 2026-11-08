@@ -27,13 +27,12 @@ struct Movie {
         return "\(elapsed) of \(runtimeMinutes) min"
     }
 
-    var criterionLiveURL: URL {
-        URL(string: "https://www.criterionchannel.com/events/criterion-24-7")!
-    }
+    static let liveURL = URL(string: "https://www.criterionchannel.com/live/1emmgvqX/criterion-24-7")!
+    static let browseURL = URL(string: "https://www.criterionchannel.com/all-films")!
 
-    var criterionBrowseURL: URL {
-        URL(string: "https://www.criterionchannel.com/browse")!
-    }
+    var criterionLiveURL: URL { Self.liveURL }
+
+    var criterionBrowseURL: URL { Self.browseURL }
 
     var letterboxdURL: URL {
         let slug = title

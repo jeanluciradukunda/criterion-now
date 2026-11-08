@@ -25,7 +25,7 @@ class PlayerManager: ObservableObject {
 
     let webView: WKWebView
 
-    private let streamURL = URL(string: "https://www.criterionchannel.com/events/criterion-24-7")!
+    private let streamURL = Movie.liveURL
     private var volumeObserver: AnyCancellable?
     private var navigationDelegate: PlayerNavigationDelegate?
     private var audioMessageHandler: AudioMessageHandler?

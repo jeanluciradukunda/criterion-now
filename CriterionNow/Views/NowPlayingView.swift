@@ -765,7 +765,7 @@ struct NowPlayingView: View {
                     }
                 } else {
                     ActionButton(icon: "play.fill", label: "Watch Live", color: .red) {
-                        viewModel.openURL(viewModel.movie?.criterionLiveURL ?? URL(string: "https://www.criterionchannel.com/events/criterion-24-7")!)
+                        viewModel.openURL(Movie.liveURL)
                     }
                 }
                 ActionButton(icon: "text.book.closed.fill", label: "Letterboxd", color: .green) {
@@ -774,7 +774,7 @@ struct NowPlayingView: View {
             }
             HStack(spacing: 5) {
                 ActionButton(icon: "square.grid.2x2.fill", label: "Browse", color: .blue) {
-                    viewModel.openURL(URL(string: "https://www.criterionchannel.com/browse")!)
+                    viewModel.openURL(Movie.browseURL)
                 }
                 ActionButton(
                     icon: copied ? "checkmark" : "doc.on.doc.fill",
