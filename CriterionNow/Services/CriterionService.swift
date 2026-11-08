@@ -4,7 +4,10 @@ actor CriterionService {
     private let whatsOnURL = URL(string: "https://whatsonnow.criterionchannel.com/")!
 
     func fetchNowPlaying() async throws -> CriterionNowPlaying {
-        let (data, _) = try await URLSession.shared.data(from: whatsOnURL)
+        let (data, response) = try await URLSession.shared.data(from: whatsOnURL)
+        if CriterionGeoBlock.isGeoBlocked(response.url) {
+            throw CriterionError.geoBlocked
+        }
         guard let html = String(data: data, encoding: .utf8) else {
             throw CriterionError.invalidResponse
         }
@@ -73,11 +76,15 @@ actor CriterionService {
 enum CriterionError: LocalizedError {
     case invalidResponse
     case parsingFailed
+    case geoBlocked
+    case emptyLibrary
 
     var errorDescription: String? {
         switch self {
         case .invalidResponse: return "Invalid response from Criterion Channel"
         case .parsingFailed: return "Could not parse now playing info"
+        case .geoBlocked: return "Criterion Channel isn't available in your location. Turn on a system-wide VPN with a US or Canadian exit and try again."
+        case .emptyLibrary: return "No films found on My List. The Criterion site may have changed; your saved library was kept."
         }
     }
 }

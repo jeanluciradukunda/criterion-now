@@ -10,6 +10,7 @@
 		0B5EE3142812A15F788B2B1B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7246BF6B3CAC8EE9A66829B2 /* HistoryView.swift */; };
 		0DA3C8530778E24BE1CDDB31 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5988DF5C0D9320EF9BC94F9F /* Info.plist */; };
 		0F010B8D9B74E3C7B20F3F24 /* SettingsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C952D15C286C9A6FDEA10B8 /* SettingsWindow.swift */; };
+		12E2FFA181423B1CBD3C4B9A /* CriterionGeoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BCFBE00C968CA9D1E44F1 /* CriterionGeoBlock.swift */; };
 		149FE26E23D178FBEEFF74C4 /* CriterionNowWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A6E584A60E77792560629D2 /* CriterionNowWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		18FDD403D99233BBECBD618C /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2380FE160F11D406067B83A6 /* NowPlayingViewModel.swift */; };
 		195F5E4C2A95F9598DD1A858 /* CriterionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AA862F9A6D83942401E7D /* CriterionService.swift */; };
@@ -23,6 +24,7 @@
 		4F017163F1E11C5C2FCE2D0F /* AccentColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A843F03C8C76800D42CDDB4 /* AccentColor.swift */; };
 		5DBD88A7BE703EF0EEE665C7 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D0303CF862AFD46129A2F7 /* HistoryService.swift */; };
 		6142786330078F6411E9F355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03E6611E6369C3AD71FED25 /* Assets.xcassets */; };
+		6361F4B4AFCBC8583060CD3F /* CriterionGeoBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */; };
 		6564FB1CFAA99CD8CAC2B874 /* SharedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057879275F9AD1D8423251C7 /* SharedData.swift */; };
 		6670B68CA301A86D41C2EF6A /* LibraryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865F4D4D5D35F76394146659 /* LibraryDetailView.swift */; };
 		6714ED5F9B86FC157D853F06 /* MiniPlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8C35CDCD076BB618ED3D6 /* MiniPlayerWindow.swift */; };
@@ -65,6 +67,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2EAEA64E922ECB478A215773 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F55942C5BE60AFA1DF8F4566 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32722E2D3B01ED43B4F0614A;
+			remoteInfo = CriterionNow;
+		};
 		57CE820D42522FC0EF52C72D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F55942C5BE60AFA1DF8F4566 /* Project object */;
@@ -91,6 +100,7 @@
 /* Begin PBXFileReference section */
 		020FD6C53C179812F34E0E7A /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		057879275F9AD1D8423251C7 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
+		0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionGeoBlockTests.swift; sourceTree = "<group>"; };
 		0790ECA5FFF1DE5F6579E553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0BB4435B8231296923433471 /* earth_dark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_dark.jpg; sourceTree = "<group>"; };
 		13324A9D65B135F1FB829196 /* CriterionNowWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CriterionNowWidget.entitlements; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 		291E9BBFB9BA327FEF80F27D /* RadarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarChartView.swift; sourceTree = "<group>"; };
 		2CD6701A8EC87A3C11BC9431 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		2D0560B46627834A0CACCEC2 /* LibraryWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryWindow.swift; sourceTree = "<group>"; };
+		391EC90D9AD256CAD3D715F6 /* CriterionNowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CriterionNowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8BE28F0E7F7878711BA552 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		4A6E584A60E77792560629D2 /* CriterionNowWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CriterionNowWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		5015A34AAF93F2A30314B959 /* SoundtrackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundtrackService.swift; sourceTree = "<group>"; };
@@ -113,6 +124,7 @@
 		6713E76ACCD469ADD6CEB092 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		7246BF6B3CAC8EE9A66829B2 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		72F1BF88AA35AC68CCAA2686 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		7D8BCFBE00C968CA9D1E44F1 /* CriterionGeoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionGeoBlock.swift; sourceTree = "<group>"; };
 		7E9B7FCDF63FBC2CCCE05572 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		8643329517208D0195E0CA4A /* GlobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobeView.swift; sourceTree = "<group>"; };
 		865F4D4D5D35F76394146659 /* LibraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailView.swift; sourceTree = "<group>"; };
@@ -154,6 +166,7 @@
 			children = (
 				E3D82888C6A0E5D8C293626E /* CacheService.swift */,
 				CAE0BB2D348D017525C3127B /* CountryCoordinates.swift */,
+				7D8BCFBE00C968CA9D1E44F1 /* CriterionGeoBlock.swift */,
 				8A396602B8C1243FF0BA4479 /* CriterionLibraryService.swift */,
 				F68AA862F9A6D83942401E7D /* CriterionService.swift */,
 				E8D0303CF862AFD46129A2F7 /* HistoryService.swift */,
@@ -254,15 +267,25 @@
 			isa = PBXGroup;
 			children = (
 				E07F55558CD16CE952031D32 /* CriterionNow.app */,
+				391EC90D9AD256CAD3D715F6 /* CriterionNowTests.xctest */,
 				4A6E584A60E77792560629D2 /* CriterionNowWidget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EFAA8ED2C6140E50756B3C02 /* CriterionNowTests */ = {
+			isa = PBXGroup;
+			children = (
+				0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */,
+			);
+			path = CriterionNowTests;
 			sourceTree = "<group>";
 		};
 		FA4D80D6C7A1CACB94207A66 = {
 			isa = PBXGroup;
 			children = (
 				C7D18AF242642DB894A1A4D2 /* CriterionNow */,
+				EFAA8ED2C6140E50756B3C02 /* CriterionNowTests */,
 				3C51F38FDB5A64FB2C5B18EE /* CriterionNowWidget */,
 				E21264DA108F326D86916ED8 /* Products */,
 			);
@@ -307,6 +330,24 @@
 			productReference = E07F55558CD16CE952031D32 /* CriterionNow.app */;
 			productType = "com.apple.product-type.application";
 		};
+		764FECF0C7CDE9ED6CE92113 /* CriterionNowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39AE191BAD9930F51E37D337 /* Build configuration list for PBXNativeTarget "CriterionNowTests" */;
+			buildPhases = (
+				8766CC609F9BD224004EE231 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BB685678B9A541A09033F3A /* PBXTargetDependency */,
+			);
+			name = CriterionNowTests;
+			packageProductDependencies = (
+			);
+			productName = CriterionNowTests;
+			productReference = 391EC90D9AD256CAD3D715F6 /* CriterionNowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D73DD840D8DC7B1A6DA54B29 /* CriterionNowWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F0B22547EBA3802EDDF08F0B /* Build configuration list for PBXNativeTarget "CriterionNowWidget" */;
@@ -338,6 +379,10 @@
 						DevelopmentTeam = YNB3ADRMFC;
 						ProvisioningStyle = Automatic;
 					};
+					764FECF0C7CDE9ED6CE92113 = {
+						DevelopmentTeam = YNB3ADRMFC;
+						ProvisioningStyle = Automatic;
+					};
 					D73DD840D8DC7B1A6DA54B29 = {
 						DevelopmentTeam = YNB3ADRMFC;
 						ProvisioningStyle = Automatic;
@@ -359,6 +404,7 @@
 			projectRoot = "";
 			targets = (
 				32722E2D3B01ED43B4F0614A /* CriterionNow */,
+				764FECF0C7CDE9ED6CE92113 /* CriterionNowTests */,
 				D73DD840D8DC7B1A6DA54B29 /* CriterionNowWidget */,
 			);
 		};
@@ -399,6 +445,7 @@
 				99014E9D907DD0FC848A381E /* AudioVisualizerView.swift in Sources */,
 				EDF5A4E4A187CF83441E805A /* CacheService.swift in Sources */,
 				7D6A9E62BB8F2B4C88BA995E /* CountryCoordinates.swift in Sources */,
+				12E2FFA181423B1CBD3C4B9A /* CriterionGeoBlock.swift in Sources */,
 				842613E94B23F2915B1E11B4 /* CriterionLibraryService.swift in Sources */,
 				83482BB070828B2DE7AF822A /* CriterionNowApp.swift in Sources */,
 				195F5E4C2A95F9598DD1A858 /* CriterionService.swift in Sources */,
@@ -441,6 +488,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8766CC609F9BD224004EE231 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6361F4B4AFCBC8583060CD3F /* CriterionGeoBlockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		98A3F58240BC8710B3601ECC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -453,6 +508,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7BB685678B9A541A09033F3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32722E2D3B01ED43B4F0614A /* CriterionNow */;
+			targetProxy = 2EAEA64E922ECB478A215773 /* PBXContainerItemProxy */;
+		};
 		FEEB49E0579C8B89C30976C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D73DD840D8DC7B1A6DA54B29 /* CriterionNowWidget */;
@@ -461,6 +521,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		01A027621B4E762F74A5385C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.CriterionNowTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Criterion Now.app/Contents/MacOS/Criterion Now";
+			};
+			name = Release;
+		};
 		098814D28B27E9DC1F6B9CB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -478,6 +555,23 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.CriterionNow;
 				PRODUCT_NAME = "Criterion Now";
 				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		507F18F48A01DFA4E1962CE3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.personal.CriterionNowTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Criterion Now.app/Contents/MacOS/Criterion Now";
 			};
 			name = Debug;
 		};
@@ -667,6 +761,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		39AE191BAD9930F51E37D337 /* Build configuration list for PBXNativeTarget "CriterionNowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				507F18F48A01DFA4E1962CE3 /* Debug */,
+				01A027621B4E762F74A5385C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		6F3D0065BD7E3F5591AB3500 /* Build configuration list for PBXNativeTarget "CriterionNow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

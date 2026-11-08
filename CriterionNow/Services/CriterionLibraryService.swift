@@ -42,11 +42,17 @@ class CriterionLibraryService {
     private func waitForContent(_ wv: WKWebView, timeout: TimeInterval = 15) async throws {
         let start = Date()
         while Date().timeIntervalSince(start) < timeout {
+            if CriterionGeoBlock.isGeoBlocked(wv.url) {
+                throw CriterionError.geoBlocked
+            }
             let count = (try? await wv.evaluateJavaScript(
                 "document.querySelectorAll('li.js-collection-item').length"
             )) as? Int ?? 0
             if count > 0 { return }
             try await Task.sleep(nanoseconds: 400_000_000) // 0.4s poll
+        }
+        if CriterionGeoBlock.isGeoBlocked(wv.url) {
+            throw CriterionError.geoBlocked
         }
     }
 
@@ -128,7 +134,12 @@ class CriterionLibraryService {
         try await loadAllPages(wv, maxWait: 60)
 
         let result = try await wv.evaluateJavaScript(extractionJS)
-        return (result as? [[String: Any]]).map { parseMovies(from: $0) } ?? []
+        let movies = (result as? [[String: Any]]).map { parseMovies(from: $0) } ?? []
+        // An empty scrape must not reach the caller, which would save it over the stored library.
+        if movies.isEmpty {
+            throw CriterionError.emptyLibrary
+        }
+        return movies
     }
 
     // MARK: - Fetch Collection Films

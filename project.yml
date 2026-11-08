@@ -45,6 +45,20 @@ targets:
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: true
 
+  CriterionNowTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: CriterionNowTests
+    dependencies:
+      - target: CriterionNow
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.personal.CriterionNowTests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Criterion Now.app/Contents/MacOS/Criterion Now"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+
   CriterionNowWidget:
     type: app-extension
     platform: macOS
@@ -68,3 +82,12 @@ targets:
       properties:
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+schemes:
+  CriterionNow:
+    build:
+      targets:
+        CriterionNow: all
+    test:
+      targets:
+        - CriterionNowTests
