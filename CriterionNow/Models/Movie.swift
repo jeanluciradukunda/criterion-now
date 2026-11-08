@@ -30,9 +30,6 @@ struct Movie {
     static let liveURL = URL(string: "https://www.criterionchannel.com/live/1emmgvqX/criterion-24-7")!
     static let browseURL = URL(string: "https://www.criterionchannel.com/all-films")!
 
-    var criterionLiveURL: URL { Self.liveURL }
-
-    var criterionBrowseURL: URL { Self.browseURL }
 
     var letterboxdURL: URL {
         let slug = title

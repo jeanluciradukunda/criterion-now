@@ -27,18 +27,18 @@ final class CriterionLibraryExtractionTests: XCTestCase {
         let movies = try await extract()
         XCTAssertEqual(movies.map(\.slug), [
             "snake-eyes", "kiss-of-the-spider-woman", "starring-gene-tierney",
-            "conbody-vs-everybody", "november-monthly-teaser",
+            "conbody-vs-everybody", "november-monthly-teaser", "mary-bronstein-s-adventures-in-moviegoing",
         ])
     }
 
-    func testCountMatchesExtraction() async throws {
+    func testCountSeesEveryCardLinkButNotNavOrLive() async throws {
         let count = try await webView.evaluateJavaScript(CriterionLibraryService.countJS) as? Int
-        XCTAssertEqual(count, 5)
+        XCTAssertEqual(count, 7)
     }
 
-    func testMapsLinkKindToItemType() async throws {
+    func testMapsLinkKindToItemTypeWithSeriesAsVideo() async throws {
         let types = try await extract().map(\.itemType)
-        XCTAssertEqual(types, [.movie, .movie, .collection, .collection, .video])
+        XCTAssertEqual(types, [.movie, .movie, .collection, .video, .video, .video])
     }
 
     func testReadsTitleURLAndLazyImage() async throws {

@@ -145,7 +145,7 @@
 | Discogs | Soundtrack search (style:Soundtrack), tracks | Personal token (Keychain) |
 | iTunes | Apple Music album data, track listings | None |
 | Last.fm | Scrobbling, album search fallback | API key + secret (Keychain) |
-| Criterion | Scraping whatsonnow + My List + collections | WKWebView cookies |
+| Criterion | Live page schedule + My List + collections | WKWebView cookies |
 
 ### Key Files
 ```
@@ -162,7 +162,7 @@ CriterionNow/
 │   ├── ScrobbleManager.swift            — Timed Last.fm scrobbling
 │   └── SettingsManager.swift            — All @AppStorage settings + scoring weights
 ├── Services/
-│   ├── CriterionService.swift           — Scrapes whatsonnow page
+│   ├── CriterionService.swift           — Reads the 24/7 schedule from the live page
 │   ├── CriterionLibraryService.swift    — Scrapes My List + collections
 │   ├── TMDBService.swift                — Movie details + credits (cached)
 │   ├── SoundtrackService.swift          — 5-source parallel search + weighted scoring
