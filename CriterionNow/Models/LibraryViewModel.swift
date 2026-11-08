@@ -259,7 +259,7 @@ class LibraryViewModel: ObservableObject {
         activeCollection = collection
 
         do {
-            let (description, rawFilms) = try await libraryService.fetchCollectionFilms(slug: collection.slug)
+            let (description, rawFilms) = try await libraryService.fetchCollectionFilms(url: collection.criterionURL)
             collectionFilms = rawFilms
 
             let enriched = await enrichMoviesConcurrently(rawFilms, concurrency: 5)
