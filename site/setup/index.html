@@ -14,7 +14,7 @@
   <a class="skip" href="#steps">Skip to the steps</a>
 
   <div class="draft-banner" role="note">
-    <strong>Draft:</strong> prices marked <span class="pill tbc">to confirm</span> are still being checked against the vendors' own pages.
+    <strong>Draft:</strong> every price and rand total marked <span class="pill tbc">to confirm</span> is still being checked against the companies' own pages.
   </div>
 
   <header class="hero">
@@ -22,7 +22,7 @@
     <div class="wrap hero-inner">
       <p class="kicker">A setup guide for humans</p>
       <h1>Criterion, from South Africa, in five steps.</h1>
-      <p class="lede">The Criterion Channel only opens its doors to the US and Canada. So we send your browser on a small holiday to Canada, buy a ticket, and you watch Kurosawa from the couch. No technical skills needed, only about 20 minutes and a bank card.</p>
+      <p class="lede">The Criterion Channel only opens its doors to the US and Canada. So we send your browser on a small holiday to Canada, buy a ticket, and you watch Kurosawa from the couch. No technical skills needed, only about 20 minutes, a bank card and a computer with Chrome (phones can't add Chrome extensions, so do the setup on a laptop or desktop).</p>
 
       <div class="ticket-wrap">
         <svg class="ticket" viewBox="0 0 480 220" role="img" aria-label="A cinema ticket reading Admit one, Cape Town to Canada">
@@ -62,35 +62,35 @@
 
       <p class="caption">Prices in US dollars as listed by each company, checked 10 Nov 2026. Long plans are usually an introductory price that goes up on renewal.</p>
       <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>VPN and its Chrome extension</th><th class="num">Monthly plan</th><th class="num">1-year plan</th><th>Free plan</th></tr>
+        <table role="table">
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">VPN and its Chrome extension</th><th role="columnheader" scope="col" class="num">Monthly plan</th><th role="columnheader" scope="col" class="num">1-year plan</th><th role="columnheader" scope="col">Free plan</th></tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Proton VPN<br><a href="https://chromewebstore.google.com/detail/jplgfhpmjnbigmhklmmbgecoobifkmpa">extension</a></td>
-              <td class="num" data-label="Monthly">US$9.99 <span class="pill tbc">to confirm</span></td>
-              <td class="num" data-label="1 year">US$47.88 <span class="pill tbc">to confirm</span></td>
-              <td data-label="Free plan">Yes, a few countries (check for Canada)</td>
+          <tbody role="rowgroup">
+            <tr role="row">
+              <th role="rowheader" scope="row">Proton VPN<br><a href="https://chromewebstore.google.com/detail/jplgfhpmjnbigmhklmmbgecoobifkmpa">extension</a></th>
+              <td role="cell" class="num" data-label="Monthly">US$9.99 <span class="pill tbc">to confirm</span></td>
+              <td role="cell" class="num" data-label="1 year">US$35.88 first year <span class="pill tbc">to confirm</span></td>
+              <td role="cell" data-label="Free plan">Yes, but it can't choose Canada, so it won't work for this</td>
             </tr>
-            <tr>
-              <td>NordVPN<br><a href="https://chromewebstore.google.com/detail/fjoaledfpmneenckfbpdfhkmimnjocfa">extension</a></td>
-              <td class="num" data-label="Monthly">US$12.99 to 14.99 <span class="pill tbc">to confirm</span></td>
-              <td class="num" data-label="1 year">about US$69 <span class="pill tbc">to confirm</span></td>
-              <td data-label="Free plan">No</td>
+            <tr role="row">
+              <th role="rowheader" scope="row">NordVPN<br><a href="https://chromewebstore.google.com/detail/fjoaledfpmneenckfbpdfhkmimnjocfa">extension</a></th>
+              <td role="cell" class="num" data-label="Monthly">US$12.99 to 14.99 <span class="pill tbc">to confirm</span></td>
+              <td role="cell" class="num" data-label="1 year">about US$69 <span class="pill tbc">to confirm</span></td>
+              <td role="cell" data-label="Free plan">No</td>
             </tr>
-            <tr>
-              <td>ExpressVPN<br><a href="https://chromewebstore.google.com/detail/fgddmllnllkalaagkghckoinaemmogpe">extension</a> (reported to need its desktop app too)</td>
-              <td class="num" data-label="Monthly">US$12.95 <span class="pill tbc">to confirm</span></td>
-              <td class="num" data-label="1 year">about US$100 <span class="pill tbc">to confirm</span></td>
-              <td data-label="Free plan">No</td>
+            <tr role="row">
+              <th role="rowheader" scope="row">ExpressVPN<br><a href="https://chromewebstore.google.com/detail/fgddmllnllkalaagkghckoinaemmogpe">extension</a> (use the extension on its own, not the desktop app, which would send your whole computer to Canada)</th>
+              <td role="cell" class="num" data-label="Monthly">US$12.95 <span class="pill tbc">to confirm</span></td>
+              <td role="cell" class="num" data-label="1 year">about US$100 <span class="pill tbc">to confirm</span></td>
+              <td role="cell" data-label="Free plan">No</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <ol class="do">
-        <li>Pick one, go to its website and choose a plan. If you are not sure you will stick with it, the monthly plan is the low-commitment option; the money-back window is there if it all goes wrong.</li>
+        <li>Pick one, go to its website and choose a plan. Monthly can be cancelled any time; yearly costs less per month but is paid up front.</li>
         <li>Make an account with an email address and a password you will remember. Write the password down somewhere safe (a password manager, or the back of a Kurosawa DVD).</li>
       </ol>
       <p class="check"><strong>You should now have:</strong> a VPN account, and an email saying welcome.</p>
@@ -127,13 +127,13 @@
       </div>
 
       <ol class="do">
-        <li>In the new Criterion window, open your VPN's extension link from the table in step 1.</li>
+        <li>In the new Criterion window, go to <span class="ui">chromewebstore.google.com</span> and search for your VPN's name. (The links in the table open in whichever window you click them in, so skip them for this bit.)</li>
         <li>Click <span class="ui">Add to Chrome</span>, then <span class="ui">Add extension</span>.</li>
         <li>Click the <span class="ui">puzzle piece</span> in the top right, then the <span class="ui">pin</span> next to your VPN, so its icon stays in view.</li>
         <li>Click the VPN icon and sign in with the account from step 1.</li>
         <li>Choose <span class="ui">Canada</span> from the country list and click <span class="ui">Connect</span>.</li>
       </ol>
-      <p class="check"><strong>You should now see:</strong> the extension saying it is connected, with Canada shown as your location. Congratulations, your browser has emigrated. It did not even need a visa.</p>
+      <p class="check"><strong>You should now see:</strong> the extension saying it is connected, with Canada as your location, and its icon in the Criterion window only, not in your usual one. Congratulations, your browser has emigrated. It did not even need a visa.</p>
     </section>
 
     <section class="step" id="subscribe" aria-labelledby="subscribe-title">
@@ -170,24 +170,26 @@
           <p class="small">Pay monthly</p>
           <p class="big">R343 <span class="small">a month</span></p>
           <p class="small">about R4,117 over a year</p>
+          <p><span class="pill tbc">to confirm</span></p>
         </div>
         <div class="card">
           <p class="small">Pay yearly</p>
-          <p class="big">R2,418 <span class="small">a year</span></p>
-          <p class="small">works out about R202 a month</p>
+          <p class="big">R2,222 <span class="small">the first year</span></p>
+          <p class="small">about R185 a month; the VPN costs more when it renews</p>
+          <p><span class="pill tbc">to confirm</span></p>
         </div>
       </div>
 
       <p class="caption">Before tax. Your bank charges its own exchange rate, so the amount on your statement will be a little different.</p>
       <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th></th><th class="num">Monthly</th><th class="num">Yearly</th></tr>
+        <table role="table">
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">Item</th><th role="columnheader" scope="col" class="num">Monthly</th><th role="columnheader" scope="col" class="num">Yearly</th></tr>
           </thead>
-          <tbody>
-            <tr><td>Criterion Channel</td><td class="num" data-label="Monthly">US$10.99 = R180 <span class="pill tbc">to confirm</span></td><td class="num" data-label="Yearly">US$99.99 = R1,635 <span class="pill tbc">to confirm</span></td></tr>
-            <tr><td>Proton VPN</td><td class="num" data-label="Monthly">US$9.99 = R163 <span class="pill tbc">to confirm</span></td><td class="num" data-label="Yearly">US$47.88 = R783 <span class="pill tbc">to confirm</span></td></tr>
-            <tr class="total"><td>Together</td><td class="num" data-label="Monthly">R343 a month</td><td class="num" data-label="Yearly">R2,418 a year</td></tr>
+          <tbody role="rowgroup">
+            <tr role="row"><th role="rowheader" scope="row">Criterion Channel</th><td role="cell" class="num" data-label="Monthly">US$10.99 = R180 <span class="pill tbc">to confirm</span></td><td role="cell" class="num" data-label="Yearly">US$99.99 = R1,635 <span class="pill tbc">to confirm</span></td></tr>
+            <tr role="row"><th role="rowheader" scope="row">Proton VPN</th><td role="cell" class="num" data-label="Monthly">US$9.99 = R163 <span class="pill tbc">to confirm</span></td><td role="cell" class="num" data-label="Yearly">US$35.88 = R587 <span class="pill tbc">to confirm</span></td></tr>
+            <tr role="row" class="total"><th role="rowheader" scope="row">Together</th><td role="cell" class="num" data-label="Monthly">R343 a month <span class="pill tbc">to confirm</span></td><td role="cell" class="num" data-label="Yearly">R2,222 the first year <span class="pill tbc">to confirm</span></td></tr>
           </tbody>
         </table>
       </div>
