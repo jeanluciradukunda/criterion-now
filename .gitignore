@@ -39,3 +39,6 @@ site/tsconfig.tsbuildinfo
 ritual*.png
 library-example.mp4
 *.mp4
+
+# Cloudflare wrangler local cache
+.wrangler/
