@@ -137,9 +137,9 @@ footer li { margin: 4px 0; word-break: break-word; }
   td::before { content: none; }
   thead th { color: var(--ink); font-weight: 400; background: var(--shade); }
   tbody th { display: table-cell; font-size: inherit; }
-  .num { text-align: right; white-space: nowrap; }
+  .num { text-align: right; min-width: 8rem; }
   .num .pill.tbc { display: block; width: max-content; margin: 4px 0 0 auto; }
-  tr.total td { color: var(--ink); border-top: 2px solid var(--ink); }
+  tr.total td, tr.total th { color: var(--ink); border-top: 2px solid var(--ink); }
   .cards { grid-template-columns: 1fr 1fr; }
 }
 
