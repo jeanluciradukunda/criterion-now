@@ -133,12 +133,14 @@ actor SoundtrackService {
     static let appleMusicHosts: Set<String> = ["music.apple.com", "itunes.apple.com"]
     static let lastfmHosts: Set<String> = ["www.last.fm", "last.fm"]
 
-    /// Album links from API responses are opened with NSWorkspace, so only https links on the service's own hosts are kept.
+    /// Album links from API responses are opened with NSWorkspace, so only web links on the service's own hosts are kept,
+    /// upgraded to https (Last.fm still returns http album URLs).
     static func linkURL(_ string: String?, allowedHosts: Set<String>) -> URL? {
-        guard let string, let url = URL(string: string),
-              url.scheme?.lowercased() == "https",
-              let host = url.host?.lowercased(), allowedHosts.contains(host) else { return nil }
-        return url
+        guard let string, var parts = URLComponents(string: string),
+              let scheme = parts.scheme?.lowercased(), scheme == "https" || scheme == "http",
+              let host = parts.host?.lowercased(), allowedHosts.contains(host) else { return nil }
+        parts.scheme = "https"
+        return parts.url
     }
 
     enum SoundtrackError: LocalizedError {

@@ -56,6 +56,7 @@
 		BF8579CDD50F461834DA7A9C /* RadarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E9BBFB9BA327FEF80F27D /* RadarChartView.swift */; };
 		CD15594F83F1CB7617C4F749 /* StatisticsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EE1812935A0975F3D6555 /* StatisticsWindow.swift */; };
 		CE7929FEEF2D214048AF6685 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BE28F0E7F7878711BA552 /* StatisticsView.swift */; };
+		CFA58DC173AF7A44C35665FA /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020FD6C53C179812F34E0E7A /* Secrets.plist */; };
 		D29859F0628C3B9AA32AC1EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD237E6B471E80346D4763C4 /* Assets.xcassets */; };
 		D7C4FC75121C37B58BA89EFE /* GlobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8643329517208D0195E0CA4A /* GlobeView.swift */; };
 		DE854BD17F853B534D21DD17 /* earth_dark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0BB4435B8231296923433471 /* earth_dark.jpg */; };
@@ -102,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		020FD6C53C179812F34E0E7A /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Secrets.plist; sourceTree = "<group>"; };
 		057879275F9AD1D8423251C7 /* SharedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedData.swift; sourceTree = "<group>"; };
 		0614C6F73726AA13FA1638EA /* CriterionGeoBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionGeoBlockTests.swift; sourceTree = "<group>"; };
 		0790ECA5FFF1DE5F6579E553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				8C4321E85C29E1632EED54B1 /* earth_night.jpg */,
 				0790ECA5FFF1DE5F6579E553 /* Info.plist */,
 				BF1A2179534058DD8DE06007 /* Secrets.example.plist */,
+				020FD6C53C179812F34E0E7A /* Secrets.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				D29859F0628C3B9AA32AC1EC /* Assets.xcassets in Resources */,
 				29845D37B5313A2276B8A7DB /* Info.plist in Resources */,
 				9805516E0F089A151E64C462 /* Secrets.example.plist in Resources */,
+				CFA58DC173AF7A44C35665FA /* Secrets.plist in Resources */,
 				DE854BD17F853B534D21DD17 /* earth_dark.jpg in Resources */,
 				E8C8AC0EA34AECA920BAA7F3 /* earth_night.jpg in Resources */,
 			);
