@@ -130,6 +130,17 @@ private struct iTunesLookupResult: Codable {
 // MARK: - Service
 
 actor SoundtrackService {
+    static let appleMusicHosts: Set<String> = ["music.apple.com", "itunes.apple.com"]
+    static let lastfmHosts: Set<String> = ["www.last.fm", "last.fm"]
+
+    /// Album links from API responses are opened with NSWorkspace, so only https links on the service's own hosts are kept.
+    static func linkURL(_ string: String?, allowedHosts: Set<String>) -> URL? {
+        guard let string, let url = URL(string: string),
+              url.scheme?.lowercased() == "https",
+              let host = url.host?.lowercased(), allowedHosts.contains(host) else { return nil }
+        return url
+    }
+
     enum SoundtrackError: LocalizedError {
         case notFound
         var errorDescription: String? { "No soundtrack found" }
@@ -431,7 +442,7 @@ actor SoundtrackService {
 
             for result in response.results.prefix(2) {
                 let artworkURL = result.artworkUrl100.flatMap { URL(string: $0.replacingOccurrences(of: "100x100", with: "600x600")) }
-                let appleMusicURL = result.collectionViewUrl.flatMap { URL(string: $0) }
+                let appleMusicURL = Self.linkURL(result.collectionViewUrl, allowedHosts: Self.appleMusicHosts)
 
                 let album = SoundtrackAlbum(
                     albumName: result.collectionName, artistName: result.artistName,
@@ -472,7 +483,7 @@ actor SoundtrackService {
                 }
             }
 
-            let lastfmURL = (albumData["url"] as? String).flatMap { URL(string: $0) }
+            let lastfmURL = Self.linkURL(albumData["url"] as? String, allowedHosts: Self.lastfmHosts)
 
             let album = SoundtrackAlbum(
                 albumName: name, artistName: artist, artworkURL: artworkURL, allArtworkURLs: [],
