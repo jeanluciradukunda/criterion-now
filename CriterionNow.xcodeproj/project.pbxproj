@@ -18,6 +18,7 @@
 		29845D37B5313A2276B8A7DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0790ECA5FFF1DE5F6579E553 /* Info.plist */; };
 		2B30F92533CCE45BA46430C5 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928B28E8A885B4BEAD0F85E /* ActionButton.swift */; };
 		2C66BA50E4785B86328605A8 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B7FCDF63FBC2CCCE05572 /* LocalStore.swift */; };
+		30D483BB8A55E6324ACFD183 /* TransportSecurityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948247B38EB029B4159D4B8C /* TransportSecurityTests.swift */; };
 		452E7816734E2DB585C4A0E5 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A2BF2F3B4F79CB103BDCFF /* LibraryViewModel.swift */; };
 		4D702F798ABEB1C35FB4C0DD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6F79BB1B1C0A9D4928C0D /* Movie.swift */; };
 		4E6819E445E1302B4378E79E /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F1BF88AA35AC68CCAA2686 /* KeychainService.swift */; };
@@ -139,6 +140,7 @@
 		865F4D4D5D35F76394146659 /* LibraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryDetailView.swift; sourceTree = "<group>"; };
 		8A396602B8C1243FF0BA4479 /* CriterionLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionLibraryService.swift; sourceTree = "<group>"; };
 		8C4321E85C29E1632EED54B1 /* earth_night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth_night.jpg; sourceTree = "<group>"; };
+		948247B38EB029B4159D4B8C /* TransportSecurityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportSecurityTests.swift; sourceTree = "<group>"; };
 		9E738587CD71113FB854E247 /* CriterionNowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriterionNowApp.swift; sourceTree = "<group>"; };
 		A1A2BF2F3B4F79CB103BDCFF /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 		A7C289EC2538DEEB354DAA7F /* StreamWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamWebView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				86326163D6E9B36C1E718BB0 /* CriterionNowPlayingTests.swift */,
 				73940D2246F47685966B809C /* KeychainServiceTests.swift */,
 				AA36E6D1A27D64B281D99018 /* SoundtrackLinkTests.swift */,
+				948247B38EB029B4159D4B8C /* TransportSecurityTests.swift */,
 				4F6C66A6D6690A8F3CDC1696 /* Fixtures */,
 			);
 			path = CriterionNowTests;
@@ -533,6 +536,7 @@
 				8B1F4051063B85FC144266B8 /* CriterionNowPlayingTests.swift in Sources */,
 				81D12E10CD7AF1021F72DC9F /* KeychainServiceTests.swift in Sources */,
 				F7CA7059A30D88170F3FA8C7 /* SoundtrackLinkTests.swift in Sources */,
+				30D483BB8A55E6324ACFD183 /* TransportSecurityTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

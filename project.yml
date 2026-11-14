@@ -42,8 +42,6 @@ targets:
       properties:
         LSUIElement: true
         CFBundleDisplayName: "Criterion Now"
-        NSAppTransportSecurity:
-          NSAllowsArbitraryLoads: true
 
   CriterionNowTests:
     type: bundle.unit-test
