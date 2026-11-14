@@ -66,6 +66,25 @@ final class KeychainServiceTests: XCTestCase {
         XCTAssertEqual(legacy.string(forKey: "cn_secret_lastfm_shared_secret"), "dummy-secret")
     }
 
+    func testAnUnmigratedLegacyValueStaysReadableUntilItMoves() {
+        legacy.set("dummy-session", forKey: "cn_secret_lastfm_session_key")
+        store.failWrites = true
+        KeychainService.migrateLegacyDefaults()
+        XCTAssertEqual(KeychainService.lastfmSessionKey, "dummy-session")
+    }
+
+    func testDeleteRemovesBothTheStoreAndTheLegacyValue() {
+        store.items["lastfm_session_key"] = "current"
+        legacy.set("stale", forKey: "cn_secret_lastfm_session_key")
+        XCTAssertTrue(KeychainService.delete(.lastfmSessionKey))
+        XCTAssertNil(KeychainService.lastfmSessionKey)
+    }
+
+    func testAFailedWriteReportsFailure() {
+        store.failWrites = true
+        XCTAssertFalse(KeychainService.set(.lastfmSessionKey, value: "dummy"))
+    }
+
     func testAnExistingStoreValueWinsOverTheLegacyOne() {
         store.items["discogs_token"] = "current"
         legacy.set("stale", forKey: "cn_secret_discogs_token")

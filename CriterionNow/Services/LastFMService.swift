@@ -93,12 +93,14 @@ actor LastFMService {
             throw LastFMError.authFailed
         }
 
-        KeychainService.set(.lastfmSessionKey, value: session.key)
+        guard KeychainService.set(.lastfmSessionKey, value: session.key) else {
+            throw LastFMError.authFailed
+        }
         UserDefaults.standard.set(session.name, forKey: usernameKey)
     }
 
     func logout() {
-        KeychainService.delete(.lastfmSessionKey)
+        guard KeychainService.delete(.lastfmSessionKey) else { return }
         UserDefaults.standard.removeObject(forKey: usernameKey)
     }
 

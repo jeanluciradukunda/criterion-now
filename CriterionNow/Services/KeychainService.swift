@@ -33,7 +33,6 @@ struct KeychainStore: SecretStore {
         guard status == errSecItemNotFound else { return status == errSecSuccess }
         var query = query(account)
         query[kSecValueData as String] = data
-        query[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlock
         return SecItemAdd(query as CFDictionary, nil) == errSecSuccess
     }
 
@@ -79,22 +78,26 @@ struct KeychainService {
 
     // MARK: - Read
 
+    /// Falls back to a legacy value that has not migrated yet (a failed Keychain write keeps it), so credentials stay usable.
     static func get(_ key: Key) -> String? {
-        store.read(key.rawValue)
+        store.read(key.rawValue) ?? legacyDefaults.string(forKey: legacyPrefix + key.rawValue)
     }
 
     // MARK: - Write
 
     @discardableResult
     static func set(_ key: Key, value: String) -> Bool {
-        store.write(key.rawValue, value: value)
+        guard store.write(key.rawValue, value: value) else { return false }
+        legacyDefaults.removeObject(forKey: legacyPrefix + key.rawValue)
+        return true
     }
 
     // MARK: - Delete
 
     @discardableResult
     static func delete(_ key: Key) -> Bool {
-        store.remove(key.rawValue)
+        legacyDefaults.removeObject(forKey: legacyPrefix + key.rawValue)
+        return store.remove(key.rawValue)
     }
 
     // MARK: - Migration from plain UserDefaults
@@ -105,7 +108,7 @@ struct KeychainService {
         for key in Key.allCases {
             let legacyKey = legacyPrefix + key.rawValue
             guard let value = legacyDefaults.string(forKey: legacyKey) else { continue }
-            if get(key) != nil || set(key, value: value) {
+            if store.read(key.rawValue) != nil || store.write(key.rawValue, value: value) {
                 legacyDefaults.removeObject(forKey: legacyKey)
             }
         }
