@@ -260,6 +260,11 @@ class LibraryViewModel: ObservableObject {
 
         do {
             let (description, rawFilms) = try await libraryService.fetchCollectionFilms(url: collection.criterionURL)
+            // A stale pre-redesign URL loads a 404 with no cards; caching that would pin the collection empty.
+            guard !rawFilms.isEmpty else {
+                isLoadingCollection = false
+                return
+            }
             collectionFilms = rawFilms
 
             let enriched = await enrichMoviesConcurrently(rawFilms, concurrency: 5)

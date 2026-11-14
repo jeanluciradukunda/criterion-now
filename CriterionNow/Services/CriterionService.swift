@@ -3,9 +3,7 @@ import Foundation
 actor CriterionService {
     func fetchNowPlaying() async throws -> CriterionNowPlaying {
         let (data, response) = try await URLSession.shared.data(from: Movie.liveURL)
-        if CriterionGeoBlock.isGeoBlocked(response.url) {
-            throw CriterionError.geoBlocked
-        }
+        try CriterionGeoBlock.check(response.url)
         guard let html = String(data: data, encoding: .utf8) else {
             throw CriterionError.invalidResponse
         }
@@ -95,12 +93,14 @@ enum CriterionError: LocalizedError {
     case parsingFailed
     case geoBlocked
     case emptyLibrary
+    case signedOut
 
     var errorDescription: String? {
         switch self {
         case .invalidResponse: return "Invalid response from Criterion Channel"
         case .parsingFailed: return "Could not parse now playing info"
         case .geoBlocked: return "Criterion Channel isn't available in your location. Turn on a system-wide VPN with a US or Canadian exit and try again."
+        case .signedOut: return "You're signed out of the Criterion Channel. Stream once and sign in, then refresh your library."
         case .emptyLibrary: return "No films found on My List. The Criterion site may have changed; your saved library was kept."
         }
     }

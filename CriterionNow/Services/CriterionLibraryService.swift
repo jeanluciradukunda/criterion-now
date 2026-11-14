@@ -42,19 +42,18 @@ class CriterionLibraryService {
     private func waitForContent(_ wv: WKWebView, timeout: TimeInterval = 15) async throws {
         let start = Date()
         while Date().timeIntervalSince(start) < timeout {
-            if CriterionGeoBlock.isGeoBlocked(wv.url) {
-                throw CriterionError.geoBlocked
+            try CriterionGeoBlock.check(wv.url)
+            if CriterionGeoBlock.isSignedOut(wv.url) {
+                throw CriterionError.signedOut
             }
             let count = (try? await wv.evaluateJavaScript(Self.countJS)) as? Int ?? 0
             if count > 0 { return }
             try await Task.sleep(nanoseconds: 400_000_000) // 0.4s poll
         }
-        if CriterionGeoBlock.isGeoBlocked(wv.url) {
-            throw CriterionError.geoBlocked
-        }
+        try CriterionGeoBlock.check(wv.url)
     }
 
-    /// Click load-more until gone or item count stops growing. No fixed cap.
+    /// Scroll and click any load-more button until the card count stops growing.
     private func loadAllPages(_ wv: WKWebView, maxWait: TimeInterval = 60) async throws {
         let clickJS = """
         (function() {
@@ -64,7 +63,6 @@ class CriterionLibraryService {
                 return /^(load|show) more$/i.test(b.textContent.trim()) && b.offsetParent !== null;
             });
             if (btn) { btn.click(); }
-            return true;
         })();
         """
 
@@ -72,8 +70,7 @@ class CriterionLibraryService {
         let start = Date()
 
         while Date().timeIntervalSince(start) < maxWait {
-            let hasMore = (try? await wv.evaluateJavaScript(clickJS)) as? Bool ?? false
-            if !hasMore { break }
+            _ = try? await wv.evaluateJavaScript(clickJS)
 
             // Poll for new items instead of fixed sleep
             var waited: TimeInterval = 0
@@ -97,7 +94,7 @@ class CriterionLibraryService {
     /// Class names are hashed per build, so nothing here depends on them.
     private static let cardsFunctionJS = """
     function() {
-        var kinds = { films: 'movie', supplements: 'video', collections: 'series', series: 'series' };
+        var kinds = { films: 'movie', originals: 'video', supplements: 'video', collections: 'series', series: 'video' };
         var movies = [];
         var seen = {};
         document.querySelectorAll('a[aria-labelledby][href]').forEach(function(link) {
@@ -120,7 +117,12 @@ class CriterionLibraryService {
     """
 
     static let extractionJS = "(\(cardsFunctionJS))();"
-    static let countJS = "(\(cardsFunctionJS))().length;"
+    /// Cheap readiness and growth signal: counts card links without building the list.
+    static let countJS = """
+    Array.prototype.filter.call(document.querySelectorAll('a[aria-labelledby][href]'), function(link) {
+        return /^(?:https?:\\/\\/[^\\/]+)?\\/(films|originals|supplements|collections|series)\\/[^\\/]+\\/[^\\/]+/.test(link.getAttribute('href'));
+    }).length;
+    """
 
     // MARK: - Fetch My List
 
@@ -185,12 +187,10 @@ class CriterionLibraryService {
             guard let rawTitle = dict["title"] as? String,
                   let slug = dict["slug"] as? String else { return nil }
             let title = decodeHTML(rawTitle)
-            let href = dict["href"] as? String ?? "/\(slug)"
+            guard let href = dict["href"] as? String,
+                  let criterionURL = URL(string: "https://www.criterionchannel.com\(href)") else { return nil }
             let imageStr = dict["image"] as? String ?? ""
             let imageURL = imageStr.isEmpty ? nil : URL(string: imageStr)
-            let criterionURL = href.hasPrefix("http")
-                ? URL(string: href)!
-                : URL(string: "https://www.criterionchannel.com\(href)")!
             return LibraryMovie(
                 id: slug, title: title, slug: slug,
                 criterionURL: criterionURL, imageURL: imageURL,
