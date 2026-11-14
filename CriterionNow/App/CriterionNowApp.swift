@@ -8,8 +8,10 @@ struct CriterionNowApp: App {
     @StateObject private var settings = SettingsManager.shared
 
     init() {
-        // Bootstrap API keys into Keychain on first launch
-        KeychainService.bootstrapDefaults()
+        // Hosted unit tests swap in their own store; launching them must not touch the real Keychain.
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] == nil {
+            KeychainService.bootstrapDefaults()
+        }
     }
 
     var body: some Scene {

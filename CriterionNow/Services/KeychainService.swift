@@ -1,10 +1,53 @@
 import Foundation
+import Security
 
-/// API key storage using UserDefaults with obfuscation
-/// (Keychain requires proper code signing to avoid repeated password prompts)
+protocol SecretStore {
+    func read(_ account: String) -> String?
+    @discardableResult func write(_ account: String, value: String) -> Bool
+    @discardableResult func remove(_ account: String) -> Bool
+}
+
+struct KeychainStore: SecretStore {
+    let service: String
+
+    private func query(_ account: String) -> [String: Any] {
+        [kSecClass as String: kSecClassGenericPassword,
+         kSecAttrService as String: service,
+         kSecAttrAccount as String: account]
+    }
+
+    func read(_ account: String) -> String? {
+        var query = query(account)
+        query[kSecReturnData as String] = true
+        query[kSecMatchLimit as String] = kSecMatchLimitOne
+        var item: CFTypeRef?
+        guard SecItemCopyMatching(query as CFDictionary, &item) == errSecSuccess,
+              let data = item as? Data else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+
+    @discardableResult
+    func write(_ account: String, value: String) -> Bool {
+        let data = Data(value.utf8)
+        let status = SecItemUpdate(query(account) as CFDictionary, [kSecValueData as String: data] as CFDictionary)
+        guard status == errSecItemNotFound else { return status == errSecSuccess }
+        var query = query(account)
+        query[kSecValueData as String] = data
+        return SecItemAdd(query as CFDictionary, nil) == errSecSuccess
+    }
+
+    @discardableResult
+    func remove(_ account: String) -> Bool {
+        let status = SecItemDelete(query(account) as CFDictionary)
+        return status == errSecSuccess || status == errSecItemNotFound
+    }
+}
+
+/// API credentials and the Last.fm session key, stored in the Keychain.
 struct KeychainService {
-    private static let defaults = UserDefaults.standard
-    private static let prefix = "cn_secret_"
+    static var store: SecretStore = KeychainStore(service: "com.personal.CriterionNow")
+    static var legacyDefaults: UserDefaults = .standard
+    private static let legacyPrefix = "cn_secret_"
 
     enum Key: String, CaseIterable {
         case tmdbApiKey = "tmdb_api_key"
@@ -35,15 +78,17 @@ struct KeychainService {
 
     // MARK: - Read
 
+    /// Falls back to a legacy value that has not migrated yet (a failed Keychain write keeps it), so credentials stay usable.
     static func get(_ key: Key) -> String? {
-        defaults.string(forKey: prefix + key.rawValue)
+        store.read(key.rawValue) ?? legacyDefaults.string(forKey: legacyPrefix + key.rawValue)
     }
 
     // MARK: - Write
 
     @discardableResult
     static func set(_ key: Key, value: String) -> Bool {
-        defaults.set(value, forKey: prefix + key.rawValue)
+        guard store.write(key.rawValue, value: value) else { return false }
+        legacyDefaults.removeObject(forKey: legacyPrefix + key.rawValue)
         return true
     }
 
@@ -51,13 +96,29 @@ struct KeychainService {
 
     @discardableResult
     static func delete(_ key: Key) -> Bool {
-        defaults.removeObject(forKey: prefix + key.rawValue)
-        return true
+        legacyDefaults.removeObject(forKey: legacyPrefix + key.rawValue)
+        return store.remove(key.rawValue)
+    }
+
+    // MARK: - Migration from plain UserDefaults
+
+    /// Earlier versions kept the credentials in plain UserDefaults. A legacy value is removed
+    /// only once the Keychain holds it, so a failed write never loses a credential.
+    static func migrateLegacyDefaults() {
+        for key in Key.allCases {
+            let legacyKey = legacyPrefix + key.rawValue
+            guard let value = legacyDefaults.string(forKey: legacyKey) else { continue }
+            if store.read(key.rawValue) != nil || store.write(key.rawValue, value: value) {
+                legacyDefaults.removeObject(forKey: legacyKey)
+            }
+        }
     }
 
     // MARK: - Bootstrap defaults (first launch)
 
     static func bootstrapDefaults() {
+        migrateLegacyDefaults()
+
         // API keys are loaded from Secrets.plist (not committed to repo).
         // Copy Secrets.example.plist → Secrets.plist and fill in your keys.
         // See README for setup instructions.
