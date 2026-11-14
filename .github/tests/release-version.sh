@@ -2,7 +2,7 @@
 # Runs the release workflow's "Determine version" step with dummy inputs.
 set -u
 cd "$(dirname "$0")/../.."
-step=$(ruby -ryaml -e 'w = YAML.load_file(".github/workflows/release.yml"); s = w["jobs"]["build-and-release"]["steps"].find { |x| x["id"] == "version" }; print s["run"]')
+step=$(ruby -ryaml -e 'f = ".github/workflows/release.yml"; w = YAML.respond_to?(:unsafe_load_file) ? YAML.unsafe_load_file(f) : YAML.load_file(f); s = w["jobs"]["build-and-release"]["steps"].find { |x| x["id"] == "version" }; print s["run"]')
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
 fail=0
