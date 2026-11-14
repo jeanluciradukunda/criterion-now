@@ -15,6 +15,9 @@ jobs:
       - name: Select Xcode
         run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
 
+      - name: Release version check
+        run: bash .github/tests/release-version.sh
+
       - name: Generate Xcode project
         run: |
           brew install xcodegen || true
