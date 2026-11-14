@@ -5,7 +5,8 @@ cd "$(dirname "$0")/../.."
 ruby -ryaml -e '
   bad = []
   Dir[".github/workflows/*.{yml,yaml}"].sort.each do |file|
-    jobs = (YAML.load_file(file) || {})["jobs"] || {}
+    doc = YAML.respond_to?(:unsafe_load_file) ? YAML.unsafe_load_file(file) : YAML.load_file(file)
+    jobs = (doc || {})["jobs"] || {}
     jobs.each do |name, job|
       refs = [job["uses"]] + (job["steps"] || []).map { |step| step["uses"] }
       refs.compact.each do |ref|
